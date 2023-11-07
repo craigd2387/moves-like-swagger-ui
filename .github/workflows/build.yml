@@ -24,6 +24,7 @@ jobs:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
 
+    - run: npm install    
     - run: npx tsc && cp -R views dist && node dist/app.js
     - run: npm ci
     - run: npm run build 
