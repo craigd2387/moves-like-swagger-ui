@@ -30,7 +30,7 @@ jobs:
       env:
         API_URL: ${{ secrets.API_URL }}
         ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
-        ECR_REPOSITORY: moves-like-swagger-ui
+        ECR_REPOSITORY: employee_demo
         IMAGE_TAG: moves-like-swagger-ui
       run: |
         docker build --build-arg API_URL=${API_URL} -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG .
