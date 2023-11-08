@@ -131,4 +131,5 @@ dist
 
 dist/
 node_modules/
+.vscode/
 
