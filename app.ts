@@ -1,7 +1,7 @@
 import {Request, Response} from "express"
-const express = require ('express')
-const path = require('path')
-const nunjucks = require('nunjucks')
+import express = require("express");
+import path = require('path')
+import nunjucks = require('nunjucks')
 
 const app = express();
 
