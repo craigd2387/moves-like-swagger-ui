@@ -1,0 +1,12 @@
+{
+  "defaults": {
+    "standard": "WCAG2A",
+    "page": {
+        "viewport": { "width": 320, "height": 480 }
+      },
+      "timeout": 1000
+  },
+  "urls": [ "https://mjz7ptyppt.eu-west-1.awsapprunner.com/",
+            "http://localhost:3000"
+    ]
+}
