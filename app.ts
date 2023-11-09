@@ -6,6 +6,7 @@ const nunjucks = require('nunjucks')
 const app = express();
 
 const appViews = path.join(__dirname, '/views')
+//const appViews = path.join(__dirname, '/templates')
 
 const nunjucksConfig={
     autoescape: true,

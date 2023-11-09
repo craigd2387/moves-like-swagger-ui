@@ -2,21 +2,28 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+   
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../public/style.css">
+
+    {% block title %}
     <title>Index</title>
+    {% endblock %}
 </head>
 <body>
-    <header class="bg-dark text-light">
+   
+    <header class="bg-dark text-light>
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
+                 {% block header %}
                     <h1>Index</h1>
+                    {% endblock %}
                 </div>
             </div>
         </div>
     </header>
-    <p>Testing the css</p>
+    
     
     <script src="public/script.js"></script>
 </body>
