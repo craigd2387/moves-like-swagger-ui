@@ -1,3 +1,6 @@
-# Build script
+language: node_js
+node_js:
+  - "14"
+  
 script: 
   - npm run start & sleep 5; npm run test-pa11y;
