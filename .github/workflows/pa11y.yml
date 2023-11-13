@@ -1,0 +1,35 @@
+# language: node_js
+# node_js:
+#   - "14"
+  
+# script: 
+#   - npm run start & sleep 5; npm run test-pa11y;
+
+name: pa11y tests
+
+on: [pull_request]
+
+jobs:
+  pa11y:
+    name: Pa11y tests
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [14.x]
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: 'npm'
+
+      - name: Install pa11y-ci dependencies
+        run: npm install
+
+      - name: Run pa11y-ci and print results
+        run: npm run test-pa11y
