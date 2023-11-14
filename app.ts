@@ -4,6 +4,9 @@ import path = require('path');
 import nunjucks = require('nunjucks');
 import * as dotenv from 'dotenv';
 import session = require('express-session');
+import authController from './controller/authController';
+
+import authMiddleware from './middleware/auth';
 
 dotenv.config();
 
@@ -37,9 +40,7 @@ app.listen(3000, () => {
   console.log('Server listening on port 3000');
 });
 
-require('./controller/authController')(app);
-
-const authMiddleware = require('./middleware/auth');
+authController(app);
 
 app.use(authMiddleware);
 

@@ -1,12 +1,11 @@
-const axios = require('axios');
+import axios from 'axios';
 const MockAdapter = require('axios-mock-adapter');
-const chai = require('chai');
-
-const { expect } = chai;
 const dotenv = require('dotenv');
-const AuthService = require('../../../service/authService');
-const { assert } = require('console');
-const { EmbeddedJWK } = require('jose');
+
+import login from '../../../service/authService';
+import { expect } from 'chai';
+
+// const AuthService = require("../../../service/authService")
 
 dotenv.config();
 
@@ -24,7 +23,7 @@ describe('Auth service unit tests', () => {
       const URL = `${process.env.API_URL}/login`;
       mock.onGet(URL).reply(200, FAKE_JWT);
 
-      const token = await AuthService.login(LOGIN_CREDENTIALS);
+      const token = await login(LOGIN_CREDENTIALS);
 
       expect(token).to.deep.equal(FAKE_JWT);
     });
@@ -36,7 +35,7 @@ describe('Auth service unit tests', () => {
       const URL = `${process.env.API_URL}/login`;
       mock.onGet(URL).reply(401);
 
-      const token = await AuthService.login(LOGIN_CREDENTIALS);
+      const token = await login(LOGIN_CREDENTIALS);
       expect(token).to.deep.equal(null);
     });
   });
@@ -47,7 +46,7 @@ describe('Auth service unit tests', () => {
       const URL = `${process.env.API_URL}/login`;
       mock.onGet(URL).reply(500);
 
-      expect(AuthService.login(LOGIN_CREDENTIALS)).to.throw('Could not login');
+      expect(login(LOGIN_CREDENTIALS)).to.throw('Could not login');
     });
   });
 });

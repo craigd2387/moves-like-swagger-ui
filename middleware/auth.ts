@@ -1,7 +1,7 @@
 import { NextFunction, Request, Response } from 'express';
 import * as jose from 'jose';
 
-export default function (req:Request, res:Response, next: NextFunction) {
+export default function authMiddleware(req:Request, res:Response, next: NextFunction) {
   if (!req.session.token || req.session.token.length === 0) {
     res.redirect('/login');
     return;
