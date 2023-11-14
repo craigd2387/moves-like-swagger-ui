@@ -1,5 +1,5 @@
 import axios from 'axios';
-const MockAdapter = require('axios-mock-adapter');
+import MockAdapter from 'axios-mock-adapter';
 const dotenv = require('dotenv');
 
 import login from '../../../service/authService';
@@ -20,20 +20,20 @@ describe('Auth service unit tests', () => {
   describe('Get Token', () => {
     it('should return a valid token when correct credentials are passed', async () => {
       const mock = new MockAdapter(axios);
-      const URL = `${process.env.API_URL}/login`;
-      mock.onGet(URL).reply(200, FAKE_JWT);
+      const URL = `${process.env.API_URL}/api/login`;
+      mock.onPost(URL).reply(200, FAKE_JWT);
 
       const token = await login(LOGIN_CREDENTIALS);
 
-      expect(token).to.deep.equal(FAKE_JWT);
+      expect(token).to.equal(FAKE_JWT);
     });
   });
 
   describe('Get Token', () => {
     it('should return 401 when invalid credentials are passed', async () => {
       const mock = new MockAdapter(axios);
-      const URL = `${process.env.API_URL}/login`;
-      mock.onGet(URL).reply(401);
+      const URL = `${process.env.API_URL}/api/login`;
+      mock.onPost(URL).reply(401);
 
       const token = await login(LOGIN_CREDENTIALS);
       expect(token).to.deep.equal(null);
@@ -43,10 +43,17 @@ describe('Auth service unit tests', () => {
   describe('Get Token', () => {
     it('should throw exception when 500 error returned by server', async () => {
       const mock = new MockAdapter(axios);
-      const URL = `${process.env.API_URL}/login`;
-      mock.onGet(URL).reply(500);
+      const URL = `${process.env.API_URL}/api/login`;
+      mock.onPost(URL).reply(500);
 
-      expect(login(LOGIN_CREDENTIALS)).to.throw('Could not login');
+      let error = null
+      try {
+        await login(LOGIN_CREDENTIALS);
+      } catch(e){
+        error = e.message;
+      }
+
+      expect(error).to.equal("Could not login");
     });
   });
 });
