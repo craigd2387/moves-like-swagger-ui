@@ -16,7 +16,7 @@ export async function login(login:Login): Promise<string> {
             throw new Error("Could not login");
         }
 
-        if(e.response.status == 404 || e.response.status == 401){çç
+        if(e.response.status == 404 || e.response.status == 401){
             return null;
         }
 
