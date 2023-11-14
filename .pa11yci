@@ -2,12 +2,19 @@
   "defaults": {
     "standard": "WCAG2A",
     "runners": ["axe"],
-    "page": {
-      "viewport": { "width": 320, "height": 480 }
-    },
+    "viewports": [
+      { "width": 1280, "height": 720 },
+      { "width": 1366, "height": 768 },
+      { "width": 1920, "height": 1080 },
+      { "width": 360, "height": 640 },
+      { "width": 375, "height": 667 },
+      { "width": 414, "height": 896 },
+      { "width": 601, "height": 962 },
+      { "width": 768, "height": 1024 },
+      { "width": 1024, "height": 768 },
+      { "width": 1280, "height": 800 }
+    ],
     "timeout": 10000
   },
-  "urls": {
-    "configFile": "pa11y-config.json"
-  }
+  "urls": ["https://mjz7ptyppt.eu-west-1.awsapprunner.com/"]
 }
