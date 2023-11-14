@@ -1,4 +1,4 @@
-export class JobRole {
+export interface JobRole {
     jobId: number
     jobName: string
 }

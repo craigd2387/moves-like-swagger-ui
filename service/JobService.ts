@@ -1,12 +1,19 @@
+import axios from 'axios';
 import { JobRole } from "../model/jobRole";
+axios.defaults.baseURL = process.env.API_URL;
 
-const axios = require('axios'); 
+export class JobService {
+  URL = '/api/job-roles/';
 
-module.exports.getJobRoles = async function (): Promise<JobRole[]> {
+  async getJobRoles(): Promise<JobRole[]> {
     try {
-        const response = await axios.get('http://localhost:8080/api/job-roles')
-        return response.data
+      const response = await axios.get(this.URL);
+      return response.data;
     } catch (e) {
-        throw new Error ('Something went wrong while fetching job roles. Please try again later.')
+      console.error('Error:', e);
+      throw new Error('Something went wrong while fetching job roles. Please try again later.');
     }
+  }
 }
+
+export { JobRole }; // Export the job role interface
