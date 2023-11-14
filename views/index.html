@@ -3,7 +3,6 @@
 <head>
     <meta charset="UTF-8">
     <link rel="icon" type="image/x-icon" href="images/favicon.png">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="style.css">
     <title>Index</title>
@@ -65,11 +64,8 @@
                 </div>
                 <div class="header__right-panel js-header-right-panel">
                     <div class="header__menu" id="hamburger"> 
-                        <button type="button" class="hamburger" onclick="myFunction()" title="Menu button">
+                        <button type="button" class="hamburger" onclick="dropdownToggle()" title="Menu button">
                             <i class="icon-menu js-mega-menu-btn"></i>
-                            <span class="material-icons" id="close">
-                                close
-                                </span>
                             <span class="sr-only">Menu Button</span>
                         </button>
                     </div>
@@ -80,11 +76,12 @@
    
     
     <ul class="dropdown" id="dropdown">
-        <li><a class=menu-item href="#" id="one">Link Example 1</a></li>
-        <li><a class=menu-item href="#">Link Example 2</a></li>
-        <li><a class=menu-item href="#">Link Example 3</a></li>
-        <li><a class=menu-item href="#">Link Example 4</a></li>
-        <li><a class=menu-item href="#">Link Example 5</a></li>
+        <div class="row" style="padding-bottom: 10%; padding-top: 5%;"><li><a class=menu-item href="#">Link Example 1</a></li></div>
+        
+        <div class="row" style="padding-bottom: 10%;"><li><a class=menu-item href="#">Link Example 2</a></li></div>
+        <div class="row" style="padding-bottom: 10%;"><li><a class=menu-item href="#">Link Example 3</a></li></div>
+        <div class="row" style="padding-bottom: 10%;"><li><a class=menu-item href="#">Link Example 4</a></li></div>
+        <div class="row" style="padding-bottom: 10%;"><li><a class=menu-item href="#">Link Example 5</a></li></div>
     </ul>
    
 
@@ -96,12 +93,9 @@
             </div>
         </div>
     </div>
-    <!--<div class="container">-->
-        
-    <!--</div>-->
+    
     <div class="container" style="padding-top: 3% ;" id="main">
         <h2 >CONTENT</h2>
-        
     </div>
     <div class="container" style="padding-top: 3% ;" id="main">
         <h2 >CONTENT</h2>
@@ -145,7 +139,8 @@
             </div>
         </div>
     </footer>
-    <footer class="footer" id="mobileFooter">
+
+    <footer class="mobileFooter" id="mobileFooter">
         <div class="container">
             <div class="col">
                 <div class="row">
@@ -156,21 +151,20 @@
                         <p> <small><small> Tel: 028 9057 1100</small></small> </p>
                     </div>
                 </div>
+            </div>    
             <div class="row">
                 <div class="col"><p><small><small>© 2023 Kainos. Registered in NI NI019370</small></small></p></div></div>
             </div>
         </div>
     </footer>
     
-    <script src="script.js"></script>
     <script>
-      function myFunction() {
-  var x = document.getElementById("dropdown");
-  if (x.style.display === "block") {
-    x.style.display = "none";
+        function dropdownToggle() {
+  const dropdown = document.getElementById('dropdown');
+  if (dropdown.style.display === 'block') {
+    dropdown.style.display = 'none';
   } else {
-    x.style.display = "block";
-    //x.style.position= ""
+    dropdown.style.display = 'block';
   }
 }
     </script>
