@@ -6,7 +6,6 @@ const nunjucks = require('nunjucks')
 const app = express();
 
 const appViews = path.join(__dirname, '/views')
-//const appViews = path.join(__dirname, '/templates')
 
 const nunjucksConfig={
     autoescape: true,
@@ -17,7 +16,12 @@ const nunjucksConfig={
 nunjucks.configure(appViews, nunjucksConfig)
 
 app.set('view engine', 'html')
-app.use('/public', express.static(path.join(__dirname, 'public')))
+//app.use('/public', express.static(path.join(__dirname, 'public')))
+//app.use(express.static(process.cwd()+'/public'))
+app.use(express.static('public'))
+//app.use(express.static(__dirname+'/'))
+
+
 
 app.use (express.json())
 app.use(express.urlencoded({ extended: true}))

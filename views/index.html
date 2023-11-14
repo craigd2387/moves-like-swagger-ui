@@ -2,22 +2,177 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <link rel="icon" type="image/x-icon" href="images/favicon.png">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="style.css">
     <title>Index</title>
 </head>
+
 <body>
-    <header class="bg-dark text-light">
+    <header id="header" class="header">
         <div class="container">
-            <div class="row">
-                <div class="col-md-12">
-                    <h1>Index</h1>
+            <div class="header__container">
+                <div class="header__logo-wrap">
+                    <a href="#">
+                        <picture>
+                            <img src="images/logo.png" alt="logo" style="width: 100px;"></img>
+                        </picture>
+                        <span class="sr-only">Logo</span>
+                    </a>
+                </div>
+                <div class="mega-menu__holder js-mega-menu-holder" id="menu-items">
+                    <div class="mega-menu js-mega-menu">
+                        <ul class="mega-menu__items js-menu-items">
+                            <li class="mega-menu__primary-item js-menu-primary-item">
+                                <div class="mega-menu__primary-item-label">
+                                    <a href="#" class="mega-menu__link mega-menu__title">
+                                        Link example 1
+                                    </a>
+                                </div>
+                            </li>
+                            <li class="mega-menu__primary-item js-menu-primary-item">
+                                <div class="mega-menu__primary-item-label">
+                                    <a href="#" class="mega-menu__link mega-menu__title">
+                                        Link example 2
+                                    </a>
+                                </div>
+                            </li>
+                        </li>
+                        <li class="mega-menu__primary-item js-menu-primary-item">
+                            <div class="mega-menu__primary-item-label">
+                                <a href="#" class="mega-menu__link mega-menu__title">
+                                    Link example 3
+                                </a>
+                            </div>
+                        </li>
+                        <li class="mega-menu__primary-item js-menu-primary-item">
+                            <div class="mega-menu__primary-item-label">
+                                <a href="#" class="mega-menu__link mega-menu__title">
+                                    Link example 4
+                                </a>
+                            </div>
+                        </li>
+                        <li class="mega-menu__primary-item js-menu-primary-item">
+                            <div class="mega-menu__primary-item-label">
+                                <a href="#" class="mega-menu__link mega-menu__title">
+                                    Link example 5
+                                </a>
+                            </div>
+                        </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="header__right-panel js-header-right-panel">
+                    <div class="header__menu" id="hamburger"> 
+                        <button type="button" class="hamburger" onclick="myFunction()" title="Menu button">
+                            <i class="icon-menu js-mega-menu-btn"></i>
+                            <span class="material-icons" id="close">
+                                close
+                                </span>
+                            <span class="sr-only">Menu Button</span>
+                        </button>
+                    </div>
                 </div>
             </div>
         </div>
     </header>
-    <p>Testing the css</p>
+   
     
-    <script src="public/script.js"></script>
+    <ul class="dropdown" id="dropdown">
+        <li><a class=menu-item href="#" id="one">Link Example 1</a></li>
+        <li><a class=menu-item href="#">Link Example 2</a></li>
+        <li><a class=menu-item href="#">Link Example 3</a></li>
+        <li><a class=menu-item href="#">Link Example 4</a></li>
+        <li><a class=menu-item href="#">Link Example 5</a></li>
+    </ul>
+   
+
+
+    <div class="container">
+        <div class="row" id="colourBar">
+            <div class="col-md-12">
+                <h2 id="pageTitle">Job Roles Portal</h2>
+            </div>
+        </div>
+    </div>
+    <!--<div class="container">-->
+        
+    <!--</div>-->
+    <div class="container" style="padding-top: 3% ;" id="main">
+        <h2 >CONTENT</h2>
+        
+    </div>
+    <div class="container" style="padding-top: 3% ;" id="main">
+        <h2 >CONTENT</h2>
+    </div>
+    <div class="container" style="padding-top: 3% ;" id="main">
+        <h2 >CONTENT</h2>
+    </div>
+    <div class="container" style="padding-top: 3% ;" id="main">
+        <h2 >CONTENT</h2>
+    </div>
+    <div class="container" style="padding-top: 3% ;" id="main">
+        <h2 >CONTENT</h2>
+    </div>
+    <div class="container" style="padding-top: 3% ;" id="main">
+        <h2 >CONTENT</h2>
+    </div>
+    <div class="container" style="padding-top: 3% ;" id="main">
+        <h2 >CONTENT</h2>
+    </div>
+    <div class="container" style="padding-top: 3% ;" id="main">
+        <h2 >CONTENT</h2>
+    </div>
+    <div class="container" style="padding-top: 3% ;" id="main">
+        <h2 >CONTENT</h2>
+    </div>
+    <div class="container" style="padding-top: 3% ;" id="main">
+        <h2 >CONTENT</h2>
+    </div>
+    <div class="container" style="padding-top: 3% ;" id="main">
+        <h2 >CONTENT</h2>
+    </div>
+    <div class="container" style="padding-top: 3% ;" id="main">
+        <h2 >CONTENT</h2>
+    </div>
+    <footer class="footer" id="footer">
+        <div class="container">
+            <div class="row" id="footerColourBar" style="text-align: center;">
+                <div class="col"><p id="copy"><small>© 2023 Kainos. Registered in NI NI019370</small> </p>></div>
+                <div class="col"><p id="address">4-6 Upper Crescent Belfast BT7 1NT</p></div>
+                <div class="col"><p id="phone">Tel: 028 9057 1100</p></div>
+            </div>
+        </div>
+    </footer>
+    <footer class="footer" id="mobileFooter">
+        <div class="container">
+            <div class="col">
+                <div class="row">
+                    <div class="col">
+                        <p> <small><small> Upper Crescent Belfast BT7 1NT </small></small> </p>
+                    </div>
+                    <div class="col">
+                        <p> <small><small> Tel: 028 9057 1100</small></small> </p>
+                    </div>
+                </div>
+            <div class="row">
+                <div class="col"><p><small><small>© 2023 Kainos. Registered in NI NI019370</small></small></p></div></div>
+            </div>
+        </div>
+    </footer>
+    
+    <script src="script.js"></script>
+    <script>
+      function myFunction() {
+  var x = document.getElementById("dropdown");
+  if (x.style.display === "block") {
+    x.style.display = "none";
+  } else {
+    x.style.display = "block";
+    //x.style.position= ""
+  }
+}
+    </script>
 </body>
 </html>
