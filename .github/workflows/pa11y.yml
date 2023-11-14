@@ -24,5 +24,12 @@ jobs:
       - name: Install pa11y-ci dependencies
         run: npm install
 
-      - name: Run pa11y-ci and print results
+      - name: Start application
+        run: npm start &
+        background: true
+
+      - name: Wait for application to start
+        run: sleep 10
+
+      - name: Run pa11y-ci tests
         run: npm run test-pa11y
