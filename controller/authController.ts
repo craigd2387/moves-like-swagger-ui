@@ -1,6 +1,6 @@
 import { Application, Request, Response } from 'express';
 import Login from '../model/login';
-import authService = require('../service/authService');
+import login from '../service/authService';
 
 export default function (app:Application) {
   app.get('/login', async (req:Request, res: Response) => {
@@ -11,7 +11,7 @@ export default function (app:Application) {
     const data: Login = req.body;
 
     try {
-      const token = await authService.login(data);
+      const token = await login(data);
 
       if (!token) {
         res.locals.errormessage = 'Invalid Credentials';
