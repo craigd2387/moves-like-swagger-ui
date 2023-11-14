@@ -7,5 +7,7 @@
     },
     "timeout": 10000
   },
-  "urls": ["https://mjz7ptyppt.eu-west-1.awsapprunner.com/"]
+  "urls": {
+    "configFile": "pa11y-config.json"
+  }
 }
