@@ -25,8 +25,7 @@ jobs:
         run: npm install
 
       - name: Start application
-        run: npm start &
-        background: true
+        run: npm start
 
       - name: Wait for application to start
         run: sleep 10
