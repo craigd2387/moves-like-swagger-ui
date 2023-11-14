@@ -16,6 +16,5 @@
     ],
     "timeout": 10000
   },
-  "urls": ["http://localhost:3000/",
-    "https://mjz7ptyppt.eu-west-1.awsapprunner.com/"]
+  "urls": ["http://localhost:3000/"]
 }
