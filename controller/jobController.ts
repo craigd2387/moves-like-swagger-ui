@@ -13,7 +13,6 @@ export default function (app: Application) {
     } catch (e) {
       res.locals.errormessage = 'An error occured fetching the data!';
       res.render('list-job-roles', { jobRoles: [] });
-      return;
     }
   });
 }
