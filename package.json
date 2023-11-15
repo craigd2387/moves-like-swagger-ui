@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "npx tsc && cp -R views dist && node dist/app.js",
-    "test": "ts-mocha test/unit/**/*.ts",
+    "test": "ts-mocha -p ./tsconfig.json ./test/**/**/*.ts",
     "lint": "eslint .",
     "lint-fix": "eslint . --fix", 
     "test-ui": "mocha --timeout 10000 test/ui/**/*.js",
