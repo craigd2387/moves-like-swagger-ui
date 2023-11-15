@@ -13,7 +13,11 @@ describe('JobService', function () {
 
       const jobRole: JobRole = {
         jobId: 1,
-        jobName: "Trainee Software Engineer"
+        jobName: "Trainee Software Engineer",
+        bandLevel: {
+          bandLevelId: 1,
+          bandName: "Trainee"
+        }
       };
 
       const data: JobRole[] = [jobRole];

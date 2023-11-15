@@ -13,12 +13,14 @@
         <thead>
           <tr>
             <th scope="col">Job Role</th>
+            <th scope="col">Band Level</th>
           </tr>
         </thead>
         <tbody>
           {% for jobRole in jobRoles %}
             <tr class="job-role">
               <td>{{ jobRole.jobName }}</td>
+              <td>{{ jobRole.bandLevel.bandName }}</td>
             </tr>
           {% endfor %}
         </tbody>

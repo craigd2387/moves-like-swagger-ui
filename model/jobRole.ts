@@ -1,4 +1,7 @@
+import BandLevel from './bandLevel';
+
 export default interface JobRole {
   jobId: number,
-  jobName: string
+  jobName: string,
+  bandLevel: BandLevel
 }
