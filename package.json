@@ -5,16 +5,10 @@
   "main": "index.js",
   "scripts": {
     "start": "npx tsc && cp -R views dist && node dist/app.js",
-<<<<<<< HEAD
     "test": "ts-mocha test/unit/**/*.ts",
     "lint": "eslint .",
     "lint-fix": "eslint . --fix", 
     "test-ui": "mocha --timeout 10000 test/ui/**/*.js"
-=======
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "test-pa11y": "./node_modules/.bin/pa11y-ci",
-    "lint": "eslint ."
->>>>>>> origin/main
   },
   "repository": {
     "type": "git",
@@ -35,13 +29,9 @@
   "devDependencies": {
     "@types/chai": "^4.3.10",
     "@types/express": "^4.17.21",
-<<<<<<< HEAD
     "@types/mocha": "^10.0.4",
     "@types/node": "^20.9.0",
-=======
-    "@types/node": "^20.8.10",
     "pa11y-ci": "~1.0",
->>>>>>> origin/main
     "@types/nunjucks": "^3.2.6",
     "@typescript-eslint/eslint-plugin": "^6.10.0",
     "@typescript-eslint/parser": "^6.10.0",
