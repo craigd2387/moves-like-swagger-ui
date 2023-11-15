@@ -11,10 +11,9 @@ export default function (app: Application) {
       // Render the response with jobRoles
       res.render('list-job-roles', { jobRoles });
     } catch (e) {
-      console.error(e);
-
-      // Handle the error appropriately, e.g., send an error response
-      res.status(500).send('Internal Server Error');
+      res.locals.errormessage = 'An error occured fetching the data!';
+      res.render('list-job-roles', { jobRoles: [] });
+      return;
     }
   });
 }
