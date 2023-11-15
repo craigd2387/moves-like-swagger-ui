@@ -9,7 +9,7 @@ export default function (app: Application) {
       const jobRoles: JobRole[] = await getJobRoles();
 
       // Render the response with jobRoles
-      res.render('list-job-roles', { jobRoles: jobRoles });
+      res.render('list-job-roles', { jobRoles });
     } catch (e) {
       console.error(e);
 
