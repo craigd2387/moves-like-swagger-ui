@@ -1,4 +1,4 @@
-export interface JobRole {
+export default interface JobRole {
     jobId: number
     jobName: string
 }

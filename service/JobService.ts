@@ -1,19 +1,19 @@
 import axios from 'axios';
-import { JobRole } from "../model/jobRole";
-axios.defaults.baseURL = process.env.API_URL;
+import * as dotenv from 'dotenv';
+import JobRole from '../model/jobRole';
 
-export class JobService {
-  URL = '/api/job-roles/';
+dotenv.config();
 
-  async getJobRoles(): Promise<JobRole[]> {
-    try {
-      const response = await axios.get(this.URL);
-      return response.data;
-    } catch (e) {
-      console.error('Error:', e);
-      throw new Error('Something went wrong while fetching job roles. Please try again later.');
-    }
+const { API_URL } = process.env;
+
+// Function to get all job roles from the server
+export default async function getJobRoles(): Promise<JobRole[]> {
+  try {
+    const response = await axios.get(`${API_URL}/api/job-roles`);
+
+    return response.data;
+  } catch (e) {
+    console.error('Error:', e);
+    throw new Error('Something went wrong while fetching job roles. Please try again later.');
   }
 }
-
-export { JobRole }; // Export the job role interface

@@ -1,26 +1,20 @@
-import { Application, Request, Response } from "express";
-import { JobRole } from "../model/jobRole";
-import { JobService } from "../service/JobService";
+import { Application, Request, Response } from 'express';
+import JobRole from '../model/jobRole';
+import getJobRoles from '../service/JobService';
 
-module.exports = function (app: Application) {
+export default function (app: Application) {
   app.get('/jobs', async (req: Request, res: Response) => {
     try {
-      const jobServiceInstance = new JobService();
-      const jobRoles: JobRole[] = await jobServiceInstance.getJobRoles();
+      // Call the getJobRoles function directly
+      const jobRoles: JobRole[] = await getJobRoles();
 
-      // Return a success response with the job roles
-      res.status(200).render('list-job-roles', { jobRoles });
-    } catch (error) {
-      console.error(error);
+      // Render the response with jobRoles
+      res.render('list-job-roles', { jobRoles: jobRoles });
+    } catch (e) {
+      console.error(e);
 
-      // Handle different types of errors
-      if (error.response && error.response.status === 500) {
-        // Axios error with status code 500
-        res.status(500).send('Internal Server Error');
-      } else {
-        // Other errors
-        res.status(500).render('error', { error: error.message });
-      }
+      // Handle the error appropriately, e.g., send an error response
+      res.status(500).send('Internal Server Error');
     }
   });
-};
+}
