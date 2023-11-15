@@ -8,7 +8,8 @@
     "test": "ts-mocha test/unit/**/*.ts",
     "lint": "eslint .",
     "lint-fix": "eslint . --fix", 
-    "test-ui": "mocha --timeout 10000 test/ui/**/*.js"
+    "test-ui": "mocha --timeout 10000 test/ui/**/*.js",
+    "test-pa11y": "./node_modules/.bin/pa11y-ci"
   },
   "repository": {
     "type": "git",
