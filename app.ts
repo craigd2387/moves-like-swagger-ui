@@ -2,6 +2,7 @@ import { Request, Response } from 'express';
 import express = require('express');
 import path = require('path');
 import nunjucks = require('nunjucks');
+import jobController from './controller/jobController';
 
 const app = express();
 
@@ -28,3 +29,6 @@ app.listen(3000, () => {
 app.get('/', async (req: Request, res: Response) => {
   res.render('index');
 });
+
+// import routes
+jobController(app);
