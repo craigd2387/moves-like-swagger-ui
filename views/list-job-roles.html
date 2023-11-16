@@ -26,9 +26,9 @@
         </thead>
         <tbody>
           {% for jobRole in jobRoles %}
-            <tr class="job-role-row">
-              <td id='job_role_{{ jobRole.jobId }}'>{{ jobRole.jobName }}</td>
-              <td id='job_capability_{{ jobRole.jobCapabilityName }}'>{{ jobRole.jobCapabilityName }}</td>
+            <tr class="job-role-row" id="job_role_{{ jobRole.jobId }}">
+              <td id='job_role_{{ jobRole.jobId }}_{{ jobRole.jobName }}'>{{ jobRole.jobName }}</td>
+              <td id='job_capability_{{ jobRole.jobId }}_{{ jobRole.jobCapabilityName }}'>{{ jobRole.jobCapabilityName }}</td>
             </tr>
           {% endfor %}
         </tbody>

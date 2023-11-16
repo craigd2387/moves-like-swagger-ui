@@ -29,12 +29,12 @@ describe('View Job Roles Flow', async () => {
     
         // Add more specific assertions based on your UI structure
         // For example, check if there are specific job roles listed
-        await driver.findElement(webdriver.By.id('job_role_1')).getText().then(function(value) {
+        await driver.findElement(webdriver.By.id('job_role_1_"Trainee Software Engineer"')).getText().then(function(value) {
             chai.assert.equal(value, 'Trainee Software Engineer');
         });
 
         // Check if specific capability is listed
-        await driver.findElement(webdriver.By.id('job_capability_5')).getText().then(function(value) {
+        await driver.findElement(webdriver.By.id('job_capability_5_"Cyber Security"')).getText().then(function(value) {
             chai.assert.equal(value, 'Cyber Security');
         });
     
