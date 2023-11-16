@@ -1,23 +1,15 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
-    <link rel="stylesheet" href="style.css">
-    <title>Index</title>
-</head>
-<body>
-    <header class="bg-dark text-light">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12">
-                    <h1>Index</h1>
-                </div>
-            </div>
-        </div>
-    </header>
-    <p>Testing the csss</p>
-    
-    <script src="public/script.js"></script>
-</body>
-</html>
+    {% extends "master-with-navigation.njk" %}
+
+    {% block title %}
+        Index
+    {% endblock %}
+
+    {% block pageTitle %}
+        Home Page
+    {% endblock %}
+
+    {% block content %}
+    <div class="container" style="padding-top: 3% ;">
+        <h2 >CONTENT</h2>
+    </div>
+    {% endblock %}
