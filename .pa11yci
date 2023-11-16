@@ -18,10 +18,7 @@
   },
   "urls": [
     "http://localhost:3000/",
-<<<<<<< HEAD
-    "http://localhost:3000/jobs"
-=======
+    "http://localhost:3000/jobs",
     "http://localhost:3000/login"
->>>>>>> origin/main
   ]
 }
