@@ -45,5 +45,3 @@ export async function getJobSpec(id: number): Promise<JobSpecificationResponse> 
     }
   }
 }
-
-
