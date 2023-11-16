@@ -25,12 +25,12 @@ app.use(express.static('public'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-app.listen(3000, () => {
-  console.log('Server listening on port 3000');
-});
-
 jobController(app);
 
 app.get('/', async (req: Request, res: Response) => {
   res.render('index');
+});
+
+app.listen(3000, () => {
+  console.log('Server listening on port 3000');
 });
