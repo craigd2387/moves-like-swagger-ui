@@ -13,12 +13,10 @@ export default function (app: Application) {
       jobSpec = await getJobSpec(Number(req.params.id));
       // show returned data in job-specification page
       res.render('job-specification', { jobSpec });
-      console.log(jobSpec);
     } catch (e) {
       console.error(e);
       // render job-specification page passing in relevant error message
-      res.send('error');
-      console.log(jobSpec);
+      res.render('job-specification', { error: e.message });
     }
   });
 }

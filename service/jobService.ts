@@ -6,7 +6,6 @@ const axios = require('axios');
 // getJobSpec method
 export default async function getJobSpec(id: number): Promise<JobSpecificationResponse> {
   try {
-    console.log(`get job spec ${id}`)
     // axios call to api
     const response = await axios.get(`http://localhost:8080/api/job-specification/${id}`);
     if (response.data == null) {

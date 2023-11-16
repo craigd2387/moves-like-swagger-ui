@@ -242,6 +242,11 @@ a, button {
 .mega-menu__primary-item:hover .mega-menu__link.mega-menu__title {
     border-bottom: 2px solid; 
 }
+
+.btn.btn-success {
+    font-family: 'Century Gothic' !important;
+}
+
     
   
 @media (max-width: 839.98px) {
