@@ -21,10 +21,10 @@ jobs:
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v3
         with:
-          node-version: '19'
+          node-version: '20'
           cache: 'npm'
-      - run: npm ci
-      - run: npm run test
+      - run: npm install
+      - run: npm run test-ui
         env:
           BROWSER: chrome
       - uses: actions/upload-artifact@v3
