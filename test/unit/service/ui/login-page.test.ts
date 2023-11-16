@@ -8,15 +8,23 @@ import 'selenium-webdriver/safari';
 let driver: webdriver.WebDriver;
 
 before(function (done) {
-    setTimeout(function () {
-        driver = new webdriver.Builder()
-        .withCapabilities(webdriver.Capabilities.chrome())
-        .build();
-        
-        driver.manage().window().maximize();
+    const timeout = 3000;
 
-        done();
-    }, 3000);
+    setTimeout(function () {
+        try {
+            driver = new webdriver.Builder()
+                .withCapabilities(webdriver.Capabilities.chrome())
+                .build();
+
+            driver.manage().window().maximize();
+
+            console.log('WebDriver successfully initialized.');
+            done();
+        } catch (error) {
+            console.error('Error during WebDriver initialization:', error);
+            done(error);
+        }
+    }, timeout);
 });
 
 afterEach(async function (done) {
