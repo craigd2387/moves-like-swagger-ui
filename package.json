@@ -8,7 +8,7 @@
     "test": "ts-mocha -p ./tsconfig.json ./test/**/**/*.ts",
     "lint": "eslint .",
     "lint-fix": "eslint . --fix",
-    "test-pa11y": "./node_modules/.bin/pa11y-ci",
+    "test-pa11y": "./node_modules/.bin/pa11y-ci"
   },
   "repository": {
     "type": "git",
@@ -34,11 +34,8 @@
     "@types/express-session": "^1.17.10",
     "@types/mocha": "^10.0.4",
     "@types/node": "^20.8.10",
-<<<<<<< HEAD
     "@types/node-jose": "^1.1.13",
-=======
     "pa11y-ci": "~1.0",
->>>>>>> origin
     "@types/nunjucks": "^3.2.6",
     "@typescript-eslint/eslint-plugin": "^6.10.0",
     "@typescript-eslint/parser": "^6.10.0",
