@@ -1,0 +1,40 @@
+{% extends 'base.njk' %}
+
+{% block content %}
+
+    {% if errormessage %} 
+    <div class="alert alert-danger text-center" role="alert">
+        {{ errormessage }}
+    </div>
+    {% else %}
+  <div class="container job-roles-list">
+    {% if jobRoles and jobRoles.length > 0 %}
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">Job Role</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for jobRole in jobRoles %}
+            <tr>
+              <td>{{ jobRole.jobName }}</td>
+            </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    {% else %}
+      <section class="jumbotron text-center bg-danger">
+        <div class="container">
+          <h1 class="jumbotron-heading text-light">No job roles available</h1>
+          <p class="lead text-light">We apologize, currently there are no job roles right now.</p>
+          <p>
+            <a href="/" class="btn btn-secondary my-2">Return to homepage</a>
+          </p>
+        </div>
+      </section>
+    {% endif %}
+  </div>
+  {% endif %}
+
+{% endblock %}
