@@ -1,0 +1,20 @@
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  testui:
+    name: testui
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v1
+    - name: install node v20
+      uses: actions/setup-node@v1
+      with:
+        node-version: 20
+    - name: npm install
+      run: npm install
+    - name: testui
+      run: npm run ui-test
