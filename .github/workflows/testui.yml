@@ -24,7 +24,7 @@ jobs:
           node-version: '20'
           cache: 'npm'
       - run: npm install
-      - run: npm run test-ui
+      - run: npm run ui-test
         env:
           BROWSER: chrome
       - uses: actions/upload-artifact@v3
