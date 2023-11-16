@@ -62,11 +62,16 @@ a:hover{
 #pageTitle{
     color: white;
     text-align: center;
+    font-size: 1.5em;
+    position: relative;
+    top: 10%;
+
+    
 }
 
 #colourBar{
     background-color: #283583;
-    height: 45px;
+    height: 40px;
 }
 
 footer{
@@ -121,6 +126,9 @@ footer{
         width: 100%;
         background-color: #283583;
         text-align: center;
+    }
+    #pageTile{
+        font-size: 0.875em;
     }
   }
   

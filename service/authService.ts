@@ -6,7 +6,7 @@ dotenv.config();
 
 const { API_URL } = process.env;
 
-export default async function login(credential:Login): Promise<string> {
+export default async function login(credential:Login): Promise<string | null> {
   try {
     const response = await axios.post(`${API_URL}/api/login`, credential);
 
