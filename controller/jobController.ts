@@ -1,22 +1,18 @@
-import { Application, Request, Response } from "express";
-import { JobRole } from "../model/jobRole";
+import { Application, Request, Response } from 'express';
+import JobRole from '../model/jobRole';
+import getJobRoles from '../service/JobService';
 
-const jobService = require ('../service/jobService')
+export default function (app: Application) {
+  app.get('/jobs', async (req: Request, res: Response) => {
+    try {
+      // Call the getJobRoles function directly
+      const jobRoles: JobRole[] = await getJobRoles();
 
-module.exports = function(app: Application){
-
-    app.get('/jobs', async (req: Request, res: Response) => {
-        let data: JobRole[];
-
-        try {
-            data = await jobService.getJobRoles()
-        } catch (e) {
-            console.error(e);
-            res.locals.errormessage = e.message
-        }
-
-        res.render('list-job-roles', { jobRoles: data });
-        
-    })
-    
+      // Render the response with jobRoles
+      res.render('list-job-roles', { jobRoles });
+    } catch (e) {
+      res.locals.errormessage = 'An error occured fetching the data!';
+      res.render('list-job-roles', { jobRoles: [] });
+    }
+  });
 }
