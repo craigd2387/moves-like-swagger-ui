@@ -7,7 +7,7 @@ import 'selenium-webdriver/safari';
 
 let driver: webdriver.WebDriver;
 
-before(async function (done) {
+before(function (done) {
     setTimeout(function () {
         driver = new webdriver.Builder()
         .withCapabilities(webdriver.Capabilities.chrome())
