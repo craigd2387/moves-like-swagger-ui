@@ -30,5 +30,13 @@ app.get('/', async (req: Request, res: Response) => {
   res.render('index');
 });
 
+app.get('/test-view', async (req: Request, res: Response) => {
+  res.render('testview');
+});
+
+app.get('/meg', async (req: Request, res: Response) => {
+  res.render('job-specification');
+});
+
 // import routes
 jobController(app);

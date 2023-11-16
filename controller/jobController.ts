@@ -10,11 +10,15 @@ export default function (app: Application) {
     let jobSpec: JobSpecificationResponse;
     try {
       // call to job service class
-      jobSpec = await getJobSpec(parseInt(req.params.id, 10));
-      // show returned data
-      res.send(jobSpec);
+      jobSpec = await getJobSpec(Number(req.params.id));
+      // show returned data in job-specification page
+      res.render('job-specification', { jobSpec });
+      console.log(jobSpec);
     } catch (e) {
       console.error(e);
+      // render job-specification page passing in relevant error message
+      res.send('error');
+      console.log(jobSpec);
     }
   });
 }
