@@ -1,10 +1,8 @@
-on:
-  push:
-  pull_request:
+on: [push,pull_request]
 
 jobs:
-  eslint:
-    name: eslint
+  test:
+    name: test
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v1
@@ -14,5 +12,5 @@ jobs:
         node-version: 20
     - name: npm install
       run: npm install
-    - name: eslint
+    - name: test
       run: npm run test
