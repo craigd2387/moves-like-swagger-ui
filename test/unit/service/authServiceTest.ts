@@ -5,8 +5,6 @@ const dotenv = require('dotenv');
 import login from '../../../service/authService';
 import { expect } from 'chai';
 
-// const AuthService = require("../../../service/authService")
-
 dotenv.config();
 
 const FAKE_JWT = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3MDAwNDY2MTYsImlhdCI6MTY5OTk2MDIxNiwiaXNzIjoib3JnLmthaW5vcy5lYSIsInN1YiI6InRlc3RAa2Fpbm9zLmNvbSJ9.t3OBTTyG3grL9Im9A2DE9ATED47qgD7Y3S_Lw_91MYU';

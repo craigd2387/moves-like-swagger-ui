@@ -1,37 +1,14 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <link rel="icon" type="image/x-icon" href="images/favicon.png">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
-    <link rel="stylesheet" href="style.css">
-    <title>Login</title>
-</head>
+{% extends "master.njk" %}
 
-<body>
-    <header id="header" class="header">
-        <div class="container">
-            <div class="header__container">
-                <div class="header__logo-wrap">
-                    <a href="#">
-                        <picture>
-                            <img src="images/logo.png" alt="logo" style="width: 100px;"></img>
-                        </picture>
-                        <span class="sr-only">Logo</span>
-                    </a>
-                </div>
-            </div>
-        </div>
-    </header>
+{% block title %}
+    Login
+{% endblock %}
 
-    <div class="container">
-        <div class="row" id="colourBar">
-            <div class="col-md-12">
-                <h2 id="pageTitle">Job Roles Portal</h2>
-            </div>
-        </div>
-    </div>
+{% block pageTitle %}
+    Login
+{% endblock %}
+
+{% block content %}
     <div class="container" style="padding-top: 3% ;" id="main">
         {% if errormessage %}
         <div class="alert alert-danger" role="alert">
@@ -51,43 +28,4 @@
             <button type="submit" class="btn btn-primary">Login</button>
         </form>
     </div>
-    <footer class="footer" id="footer">
-        <div class="container">
-            <div class="row" id="footerColourBar" style="text-align: center;">
-                <div class="col"><p id="copy"><small>© 2023 Kainos. Registered in NI NI019370</small> </p>></div>
-                <div class="col"><p id="address">4-6 Upper Crescent Belfast BT7 1NT</p></div>
-                <div class="col"><p id="phone">Tel: 028 9057 1100</p></div>
-            </div>
-        </div>
-    </footer>
-    <footer class="footer" id="mobileFooter">
-        <div class="container">
-            <div class="col">
-                <div class="row">
-                    <div class="col">
-                        <p> <small><small> Upper Crescent Belfast BT7 1NT </small></small> </p>
-                    </div>
-                    <div class="col">
-                        <p> <small><small> Tel: 028 9057 1100</small></small> </p>
-                    </div>
-                </div>
-            <div class="row">
-                <div class="col"><p><small><small>© 2023 Kainos. Registered in NI NI019370</small></small></p></div></div>
-            </div>
-        </div>
-    </footer>
-    
-    <script src="script.js"></script>
-    <script>
-      function myFunction() {
-  var x = document.getElementById("dropdown");
-  if (x.style.display === "block") {
-    x.style.display = "none";
-  } else {
-    x.style.display = "block";
-    //x.style.position= ""
-  }
-}
-    </script>
-</body>
-</html>
+{% endblock %}
