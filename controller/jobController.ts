@@ -1,8 +1,9 @@
 import { Application, Request, Response } from 'express';
 // import jobSpecificationResponse model
+import JobRole from '../model/jobRole';
 import JobSpecificationResponse from '../model/jobSpecificationResponse';
 // import job service class
-import getJobSpec from '../service/jobService';
+import { getJobSpec, getJobRoles } from '../service/JobService';
 
 export default function (app: Application) {
 
@@ -32,5 +33,5 @@ export default function (app: Application) {
       res.locals.errormessage = 'An error occured fetching the data!';
       res.render('list-job-roles', { jobRoles: [] });
     }
-});
+  });
 }

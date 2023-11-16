@@ -1,4 +1,6 @@
-export default interface JobRole {
-  jobId: number,
+class JobRole {
+  jobId: number;
   jobName: string
 }
+
+export default JobRole;
