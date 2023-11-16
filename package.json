@@ -8,7 +8,8 @@
     "test": "ts-mocha -p ./tsconfig.json ./test/unit/service/*.ts",
     "test-pa11y": "./node_modules/.bin/pa11y-ci",
     "ui-test": "npm start & sleep 10 && ts-mocha -p ./tsconfig.json test/unit/service/ui/login-page.test.ts --timeout 10000",
-    "lint": "eslint ."
+    "lint": "eslint .",
+    "lint-fix": "eslint . --fix"
   },
   "repository": {
     "type": "git",
@@ -22,6 +23,7 @@
   "homepage": "https://github.com/craigd2387/moves-like-swagger-ui#readme",
   "dependencies": {
     "axios": "^1.6.0",
+    "dotenv": "^16.3.1",
     "express": "^4.18.2",
     "nunjucks": "^3.2.4"
   },
@@ -47,5 +49,9 @@
     "selenium-webdriver": "^4.9.0",
     "ts-mocha": "^10.0.0",
     "typescript": "^5.2.2"
-  }
+  },
+  "runArgs": [
+    "--env-file",
+    "./moves-like-swagger.env"
+  ]
 }

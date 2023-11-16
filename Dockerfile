@@ -9,4 +9,3 @@ EXPOSE 3000
 RUN npm install typescript
 RUN npx tsc && cp -R views dist 
 CMD ["node", "dist/app.js"]
-

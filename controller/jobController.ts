@@ -5,6 +5,7 @@ import JobSpecificationResponse from '../model/jobSpecificationResponse';
 import getJobSpec from '../service/jobService';
 
 export default function (app: Application) {
+
   // route to get job specification
   app.get('/job-specification/:id', async (req: Request, res: Response) => {
     let jobSpec: JobSpecificationResponse;
@@ -19,4 +20,17 @@ export default function (app: Application) {
       res.render('job-specification', { error: e.message });
     }
   });
+
+  app.get('/jobs', async (req: Request, res: Response) => {
+    try {
+      // Call the getJobRoles function directly
+      const jobRoles: JobRole[] = await getJobRoles();
+
+      // Render the response with jobRoles
+      res.render('list-job-roles', { jobRoles });
+    } catch (e) {
+      res.locals.errormessage = 'An error occured fetching the data!';
+      res.render('list-job-roles', { jobRoles: [] });
+    }
+});
 }
