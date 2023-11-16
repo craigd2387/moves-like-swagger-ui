@@ -2,7 +2,10 @@ import { Request, Response } from 'express';
 import express = require('express');
 import path = require('path');
 import nunjucks = require('nunjucks');
+import * as dotenv from 'dotenv';
 import jobController from './controller/jobController';
+
+dotenv.config();
 
 const app = express();
 
@@ -22,21 +25,12 @@ app.use(express.static('public'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-app.listen(3000, () => {
-  console.log('Server listening on port 3000');
-});
+jobController(app);
 
 app.get('/', async (req: Request, res: Response) => {
   res.render('index');
 });
 
-app.get('/test-view', async (req: Request, res: Response) => {
-  res.render('testview');
+app.listen(3000, () => {
+  console.log('Server listening on port 3000');
 });
-
-app.get('/meg', async (req: Request, res: Response) => {
-  res.render('job-specification');
-});
-
-// import routes
-jobController(app);

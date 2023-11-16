@@ -5,6 +5,11 @@
   "main": "index.js",
   "scripts": {
     "start": "npx tsc && cp -R views dist && node dist/app.js",
+    "test": "ts-mocha -p ./tsconfig.json ./test/**/**/*.ts",
+    "lint": "eslint .",
+    "lint-fix": "eslint . --fix", 
+    "test-ui": "mocha --timeout 10000 test/ui/**/*.js",
+    "test-pa11y": "./node_modules/.bin/pa11y-ci"
     "test": "ts-mocha -p ./tsconfig.json ./test/unit/service/*.ts",
     "test-pa11y": "./node_modules/.bin/pa11y-ci",
     "lint": "eslint ."
@@ -21,10 +26,12 @@
   "homepage": "https://github.com/craigd2387/moves-like-swagger-ui#readme",
   "dependencies": {
     "axios": "^1.6.0",
+    "dotenv": "^16.3.1",
     "express": "^4.18.2",
     "nunjucks": "^3.2.4"
   },
   "devDependencies": {
+    "@types/chai": "^4.3.10",
     "@types/chai": "^4.3.10",
     "@types/express": "^4.17.21",
     "@types/mocha": "^10.0.4",
@@ -33,6 +40,9 @@
     "@types/nunjucks": "^3.2.6",
     "@typescript-eslint/eslint-plugin": "^6.10.0",
     "@typescript-eslint/parser": "^6.10.0",
+    "axios-mock-adapter": "^1.21.4",
+    "chai": "^4.3.7",
+    "chromedriver": "^119.0.0",
     "axios-mock-adapter": "^1.21.4",
     "chai": "^4.3.7",
     "chromedriver": "^119.0.0",
@@ -45,6 +55,13 @@
     "mocha": "^10.2.0",
     "selenium-webdriver": "^4.9.0",
     "ts-mocha": "^10.0.0",
+    "mocha": "^10.2.0",
+    "selenium-webdriver": "^4.9.0",
+    "ts-mocha": "^10.0.0",
     "typescript": "^5.2.2"
-  }
+  },
+  "runArgs": [
+    "--env-file",
+    "./moves-like-swagger.env"
+  ]
 }
