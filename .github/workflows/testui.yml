@@ -12,10 +12,10 @@ jobs:
     container:
       image: node:20
 
-    services:
-      selenium:
-        image: selenium/standalone-chrome
-        options: --shm-size=2gb
+    # services:
+    #   selenium:
+    #     image: selenium/standalone-chrome
+    #     options: --shm-size=2gb
 
     steps:
       - uses: actions/checkout@v3
