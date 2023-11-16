@@ -11,7 +11,7 @@
 {% block content %}
     <div class="container" style="padding-top: 3% ;" id="main">
         {% if errormessage %}
-        <div class="alert alert-danger" role="alert">
+        <div id="errormessage" class="alert alert-danger" role="alert">
             {{ errormessage }}
         </div>
         {% endif %}
@@ -25,7 +25,7 @@
                 <label for="password">Password</label>
                 <input type="password" id="password" name="password" value="{{ password }}" class="form-control" required/>
             </div>
-            <button type="submit" class="btn btn-primary">Login</button>
+            <button id="submitbutton" type="submit" class="btn btn-primary">Login</button>
         </form>
     </div>
 {% endblock %}
