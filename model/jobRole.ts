@@ -1,4 +1,5 @@
 export default interface JobRole {
   jobId: number,
-  jobName: string
+  jobName: string,
+  jobCapabilityName: string
 }

@@ -32,6 +32,11 @@ describe('View Job Roles Flow', async () => {
         await driver.findElement(webdriver.By.id('job_role_1')).getText().then(function(value) {
             chai.assert.equal(value, 'Trainee Software Engineer');
         });
+
+        // Check if specific capability is listed
+        await driver.findElement(webdriver.By.id('job_capability_5')).getText().then(function(value) {
+            chai.assert.equal(value, 'Cyber Security');
+        });
     
         // Check that the job roles are rendered in a certain way
         // For example, each job role might be inside a table row with class 'job-role'

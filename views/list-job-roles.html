@@ -21,12 +21,14 @@
         <thead>
           <tr>
             <th scope="col">Job Role</th>
+            <th scope="col">Capability</th>
           </tr>
         </thead>
         <tbody>
           {% for jobRole in jobRoles %}
             <tr class="job-role-row">
               <td id='job_role_{{ jobRole.jobId }}'>{{ jobRole.jobName }}</td>
+              <td id='job_capability_{{ jobRole.jobCapabilityName }}'>{{ jobRole.jobCapabilityName }}</td>
             </tr>
           {% endfor %}
         </tbody>
