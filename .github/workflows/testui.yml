@@ -23,6 +23,8 @@ jobs:
         with:
           node-version: '20'
           cache: 'npm'
+      - uses: browser-actions/setup-chrome@latest
+      - run: chrome --version
       - run: npm install
       - run: npm run ui-test
         env:
