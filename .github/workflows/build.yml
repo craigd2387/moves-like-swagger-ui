@@ -3,7 +3,11 @@
 
 name: Node.js CI
 
-on: push
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
     
 
 jobs:
@@ -24,4 +28,9 @@ jobs:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
     
+<<<<<<< HEAD
     - run: npm ci && npx tsc
+=======
+    - run: npm ci && npx tsc
+    
+>>>>>>> origin/main
