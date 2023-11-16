@@ -16,5 +16,6 @@ jobs:
         node-version: 20
     - name: npm install
       run: npm install
+    - uses: browser-actions/setup-chrome@v1
     - name: testui
       run: npm run ui-test
