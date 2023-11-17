@@ -3,7 +3,7 @@ class JobRole {
 
   jobName: string;
 
-  jobCapabilityName: string
+  jobCapabilityName: string;
 }
 
 export default JobRole;

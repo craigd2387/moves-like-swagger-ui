@@ -19,7 +19,8 @@ describe('jobService', function () {
 
       const jobRole: JobRole = {
         jobId: 1,
-        jobName: "Trainee Software Engineer"
+        jobName: "Trainee Software Engineer",
+        jobCapabilityName: "Engineering"
       };
 
       const data: JobRole[] = [jobRole];
