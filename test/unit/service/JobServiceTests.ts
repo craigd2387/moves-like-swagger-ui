@@ -17,7 +17,8 @@ describe('JobService', function () {
         bandLevel: {
           bandLevelId: 1,
           bandName: "Trainee"
-        }
+        },
+        jobCapabilityName: "Engineering"
       };
 
       const data: JobRole[] = [jobRole];

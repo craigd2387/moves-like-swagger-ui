@@ -10,7 +10,6 @@ const { API_URL } = process.env;
 export default async function getJobRoles(): Promise<JobRole[]> {
   try {
     const response = await axios.get(`${API_URL}/api/job-roles`);
-
     return response.data;
   } catch (e) {
     console.error('Error:', e);
