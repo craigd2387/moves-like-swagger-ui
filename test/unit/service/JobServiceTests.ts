@@ -2,7 +2,7 @@ import axios from 'axios';
 import MockAdapter from 'axios-mock-adapter';
 import { expect } from 'chai';
 import JobRole from '../../../model/jobRole';
-import getJobRoles from '../../../service/JobService';
+import getJobRoles from '../../../service/jobService';
 
 describe('JobService', function () {
   describe('getJobRoles', function () {
