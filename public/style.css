@@ -1,0 +1,354 @@
+
+@font-face {
+    font-family: 'Century Gothic';
+    src: url(./fonts/GOTHIC.TTF);
+}
+@font-face {
+    font-family: 'Century Gothic Bold';
+    src: url(./fonts/GOTHICB.TTF);
+    font-weight: 500;
+}
+@font-face {
+    font-family: 'Century Gothic Italic';
+    src: url(./fonts/GOTHICI.TTF);
+    font-style: italic;
+}
+@font-face {
+    font-family: 'Century Gothic Bold Italic';
+    src: url(./fonts/GOTHICBI.TTF);
+    font-style: italic;
+    font-weight: 500;
+}
+
+body{
+    background-image: linear-gradient(rgba(255,255,255,0.5), rgba(255,255,255,1)),url(./images/background.jpeg);
+    background-size: cover;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+
+h1{
+    font-family: "Century Gothic", Arial, Helvetica, sans-serif;
+    background-color: transparent;
+    display: inline; 
+    padding: 10px; 
+}
+
+h2{
+    font-family: "Century Gothic", Arial, Helvetica, sans-serif;
+    background-color: transparent;
+    display: inline; 
+    padding: 10px; 
+}
+
+h3{
+    font-family: "Century Gothic", Arial, Helvetica, sans-serif;
+}
+
+p{
+    font-family: "Century Gothic", Arial, Helvetica, sans-serif; 
+}
+
+a{
+    color: black;
+}
+
+a:hover{
+    text-decoration: none;
+    color: black;
+}
+
+#pageTitle{
+    color: white;
+    text-align: center;
+    font-size: 1.5em;
+    position: relative;
+    top: 10%;
+
+    
+}
+
+#colourBar{
+    background-color: #283583;
+    height: 40px;
+}
+
+footer{
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    color: white;
+}
+
+#footerColourBar{
+    background-color: #283583;
+    height: 30px;
+}
+#mobileFooter{
+    display: none;
+}
+#hamburger{
+    display: none;
+  }
+
+.dropdown{
+    display: none;
+    background-color: white;
+    list-style-type: none;
+    font-family: "Century Gothic", Arial, Helvetica, sans-serif;
+    text-align: center;
+    }
+  
+  .menu-item{
+    cursor: pointer;
+    padding-bottom: 40%;
+  }
+
+  /* Switch to hamburger menu on small devices */
+  @media only screen and ( max-width:839.98px) {
+   
+    #hamburger {display: block;}
+    
+    .footer{
+        display: none;
+    }
+    
+    body{
+        background-position: left center;
+    }
+    
+    #mobileFooter{
+        display: inline;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        background-color: #283583;
+        text-align: center;
+    }
+    #pageTile{
+        font-size: 0.875em;
+    }
+  }
+  
+input, button {
+    outline-color: black;
+    outline-offset: 0;
+}
+
+a, button {
+    background: transparent;
+    border: none;
+    color: inherit;
+    font: inherit;
+    -webkit-font-smoothing: inherit;
+    -moz-osx-font-smoothing: inherit;
+    line-height: normal;
+    margin: 0;
+    overflow: visible;
+    padding: 0;
+    text-align: inherit;
+    width: auto;
+    cursor: pointer;
+}
+
+.icon-menu {
+    background-image: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4NCjxzdmcgd2lkdGg9IjIwcHgiIGhlaWdodD0iMTRweCIgdmlld0JveD0iMCAwIDIwIDE0IiB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiPg0KICAgIDx0aXRsZT5NZW51PC90aXRsZT4NCiAgICA8ZyBpZD0iVUktTGlicmFyeSIgc3Ryb2tlPSJub25lIiBzdHJva2Utd2lkdGg9IjEiIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0iZXZlbm9kZCI+DQogICAgICAgIDxnIGlkPSJJY29uL01lbnUiIHRyYW5zZm9ybT0idHJhbnNsYXRlKC0xMC4wMDAwMDAsIC0xMy4wMDAwMDApIiBmaWxsPSIjMUIyREI1Ij4NCiAgICAgICAgICAgIDxwYXRoIGQ9Ik0zMCwyNSBMMzAsMjcgTDEwLDI3IEwxMCwyNSBMMzAsMjUgWiBNMzAsMTkgTDMwLDIxIEwxMCwyMSBMMTAsMTkgTDMwLDE5IFogTTMwLDEzIEwzMCwxNSBMMTAsMTUgTDEwLDEzIEwzMCwxMyBaIiBpZD0iTWVudSI+PC9wYXRoPg0KICAgICAgICA8L2c+DQogICAgPC9nPg0KPC9zdmc+);
+    background-position: center center;
+    background-repeat: no-repeat;
+    display: block;
+    height: 14px;
+    width: 20px;
+}
+
+.header {
+    background-color: #fff;
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+    z-index: 10; 
+}
+
+.header__container {
+    align-items: center;
+    display: flex;
+    height: 80px; 
+    font-family: "Century Gothic", Arial, Helvetica, sans-serif;
+}
+    
+.header__right-panel {
+    align-items: center;
+    color: #1b2db5;
+    display: flex;
+    margin-left: auto;
+    padding: 13px 0 13px 0; 
+}
+
+.header__logo-wrap {
+    padding: 13px 0 13px 12px; 
+}
+   
+.header__menu {
+    align-items: center;
+    display: flex;
+    height: 40px;
+    justify-content: center;
+    width: 40px; 
+}    
+  
+.mega-menu {
+    background-color: #fff;
+    box-shadow: 0 15px 20px 0 rgba(37, 45, 79, 0.5);
+    display: flex;
+    flex-direction: column;
+    height: 90vh;
+    justify-content: space-between;
+    overflow: hidden;
+    transform: translate(375px);
+    width: 335px; 
+}
+    
+.mega-menu__holder {
+    height: 100vh;
+    overflow-x: hidden;
+    position: absolute;
+    right: 0;
+    top: 100%;
+    width: 0; 
+}
+      
+.mega-menu a:hover::before {
+    -webkit-animation: none !important;
+    animation: none !important; 
+}
+    
+.mega-menu__primary-item {
+    cursor: pointer;
+    overflow-x: hidden;
+    padding: 28px 28px 28px 24px; 
+}
+      
+.mega-menu__primary-item-label {
+    align-items: center;
+    display: flex;
+    justify-content: space-between; 
+}
+      
+.mega-menu__primary-item:hover {
+    background-color: #f0f0ed; 
+}
+        
+.mega-menu__primary-item:hover .mega-menu__link.mega-menu__title {
+    border-bottom: 2px solid; 
+}
+    
+  
+@media (max-width: 839.98px) {
+    
+    .mega-menu {
+      position: relative; }
+      
+}
+  
+@media only screen and (min-width: 840px) and (max-width: 996px) {
+    
+    .header__logo-wrap {
+      margin-right: 3px; 
+    }
+    .header .container {
+      padding-left: 10px;
+      padding-right: 10px; 
+    }
+    .header .mega-menu__primary-item {
+      padding: 0 3px !important; 
+    }
+    .header .mega-menu__primary-item-label {
+        padding: 8px 2px; 
+    }
+  
+    }
+  
+@media (min-width: 840px) {
+    
+    .mega-menu {
+      box-shadow: none;
+      display: flex;
+      flex-direction: initial;
+      height: auto;
+      justify-content: initial;
+      overflow: initial;
+      position: initial;
+      transform: none;
+      width: auto; 
+    }
+    .mega-menu__holder {
+        display: flex;
+        height: auto;
+        overflow: initial;
+        position: initial;
+        width: auto; 
+    }
+    .mega-menu__title {
+        align-items: center;
+        border-bottom: none;
+        display: flex;
+        outline-offset: 12px;
+        padding: 0;
+        position: relative; 
+    }
+    .mega-menu__title::after {
+        background-color: #283583;
+        content: "";
+        height: 2px;
+        opacity: 0;
+        position: absolute;
+        top: 23px;
+        width: 100%; 
+    }
+    .mega-menu__items {
+        display: flex;
+        margin-bottom: 0; 
+    }  
+    .mega-menu__primary-item {
+        align-items: center;
+        display: flex;
+        height: 80px;
+        padding: 0 6px; 
+    }
+    .mega-menu__primary-item-label {
+        padding: 7px 12px 7px; 
+    }
+    .mega-menu__primary-item--current {
+        background-color: #fff; 
+    }
+    .mega-menu__primary-item--current .mega-menu__primary-item-label {
+        background-color: #283583;
+        color: #fff; 
+    }
+    .mega-menu__primary-item--current:hover .mega-menu__link.mega-menu__title {
+        border-bottom: none; 
+    }
+    .mega-menu__primary-item:hover {
+        background-color: #fff; 
+    }
+    .mega-menu__primary-item:hover .mega-menu__secondary-item {
+        display: flex; 
+    }
+    .mega-menu__primary-item:hover .mega-menu__link.mega-menu__title {
+        border-bottom: none; 
+    }
+    .mega-menu__primary-item:hover .mega-menu__link.mega-menu__title::after {
+        opacity: 1; 
+    }
+    .mega-menu__primary-item .icon-arrow {
+        display: none; 
+    }
+    .mega-menu__back-holder {
+        display: none; 
+    }
+    .mega-menu__button {
+        margin-bottom: 0;
+        padding: 0; 
+    } 
+}

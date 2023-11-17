@@ -1,4 +1,12 @@
-{% extends 'base.njk' %}
+{% extends 'master-with-navigation.njk' %}
+
+{% block title %}
+  View Job Roles
+{% endblock %}
+
+{% block pageTitle %}
+  View Job Roles
+{% endblock %}
 
 {% block content %}
 
@@ -18,8 +26,8 @@
         </thead>
         <tbody>
           {% for jobRole in jobRoles %}
-            <tr class="job-role">
-              <td>{{ jobRole.jobName }}</td>
+            <tr class="job-role-row">
+              <td id='job_role_{{ jobRole.jobId }}'>{{ jobRole.jobName }}</td>
               <td>{{ jobRole.bandLevel.bandName }}</td>
             </tr>
           {% endfor %}
