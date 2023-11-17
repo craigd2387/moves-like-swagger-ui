@@ -7,9 +7,9 @@
     "start": "npx tsc && cp -R views dist && node dist/app.js",
     "test": "ts-mocha -p ./tsconfig.json ./test/unit/service/*.ts",
     "test-pa11y": "./node_modules/.bin/pa11y-ci",
-    "ui-test": "npm start & sleep 10 && ts-mocha -p ./tsconfig.json test/unit/service/ui/login-page.test.ts --timeout 10000",
     "lint": "eslint .",
-    "lint-fix": "eslint . --fix"
+    "lint-fix": "eslint . --fix",
+    "test-ui": "mocha --timeout 10000 test/ui/**/*.js"
   },
   "repository": {
     "type": "git",
@@ -25,17 +25,21 @@
     "axios": "^1.6.0",
     "dotenv": "^16.3.1",
     "express": "^4.18.2",
-    "nunjucks": "^3.2.4"
+    "express-session": "^1.17.3",
+    "jose": "^5.1.1",
+    "nunjucks": "^3.2.4",
+    "selenium-webdriver": "^4.15.0"
   },
   "devDependencies": {
     "@types/chai": "^4.3.10",
     "@types/express": "^4.17.21",
     "@types/mocha": "^10.0.4",
-    "@types/node": "^20.8.10",
+    "@types/node": "^20.9.0",
     "@types/nunjucks": "^3.2.6",
     "@types/selenium-webdriver": "^4.1.20",
     "@typescript-eslint/eslint-plugin": "^6.10.0",
     "@typescript-eslint/parser": "^6.10.0",
+    "@types/express-session": "^1.17.10",
     "axios-mock-adapter": "^1.21.4",
     "chai": "^4.3.7",
     "chromedriver": "^119.0.0",

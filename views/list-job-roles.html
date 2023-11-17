@@ -14,20 +14,22 @@ View Job Roles
 <div class="alert alert-danger text-center" role="alert">
   {{ errormessage }}
 </div>
-{% else %}
+{% elseif jobRoles and jobRoles.length > 0 %}
 <div class="container" style="padding-top: 3% ;">
-  {% if jobRoles and jobRoles.length > 0 %}
   <table class="table">
     <thead>
       <tr>
         <th scope="col">Job Role</th>
+        <th scope="col">Capability</th>
       </tr>
     </thead>
     <tbody>
       {% for jobRole in jobRoles %}
-      <tr class="job-role-row">
-        <td id='job_role_{{ jobRole.jobId }}'><a href="/job-specification/{{ jobRole.jobId }}" method="GET"><u>{{
-              jobRole.jobName }}</u></a></td>
+      <tr class="job-role-row" id="job_role_{{ jobRole.jobId }}">
+        <td id='job_role_{{ jobRole.jobId }}_{{ jobRole.jobName }}'><a href="/job-specification/{{ jobRole.jobId }}"
+            method="GET"><u>{{
+              jobRole.jobName }}</u></a></td>{{ jobRole.jobName }}</td>
+        <td id='job_capability_{{ jobRole.jobId }}_{{ jobRole.jobCapabilityName }}'>{{ jobRole.jobCapabilityName }}</td>
       </tr>
       {% endfor %}
     </tbody>
@@ -44,6 +46,5 @@ View Job Roles
   </section>
   {% endif %}
 </div>
-{% endif %}
 
 {% endblock %}
