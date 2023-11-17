@@ -1,7 +1,7 @@
 import { Application, Request, Response } from 'express';
+import axios from 'axios';
 import Login from '../model/login';
 import login from '../service/authService';
-import axios from 'axios';
 
 export default function (app:Application) {
   app.get('/login', async (req:Request, res: Response) => {
@@ -21,8 +21,8 @@ export default function (app:Application) {
       }
 
       req.session.token = token;
-      axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
-      
+      axios.defaults.headers.common.Authorization = `Bearer ${token}`;
+
       res.redirect('/');
     } catch (e) {
       console.error(e);

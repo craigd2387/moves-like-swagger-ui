@@ -1,8 +1,8 @@
 import express, { Request, Response } from 'express';
-import path from "path"
+import path from 'path';
 import * as nunjucks from 'nunjucks';
 import * as dotenv from 'dotenv';
-import session from "express-session";
+import session from 'express-session';
 import jobController from './controller/jobController';
 import authController from './controller/authController';
 import authMiddleware from './middleware/auth';
@@ -33,9 +33,9 @@ declare module 'express-session' {
   }
 }
 
-app.use(session({ 
-  secret: process.env.CACHE_SECRET ? process.env.CACHE_SECRET : "TEST",
-  cookie: { maxAge: 60000 } 
+app.use(session({
+  secret: process.env.CACHE_SECRET ? process.env.CACHE_SECRET : 'TEST',
+  cookie: { maxAge: 60000 },
 }));
 
 authController(app);
