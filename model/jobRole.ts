@@ -1,9 +1,8 @@
-class JobRole {
-  jobId: number;
+import BandLevel from './bandLevel';
 
-  jobName: string;
-
-  jobCapabilityName: string;
+export default interface JobRole {
+  jobId: number,
+  jobName: string,
+  bandLevel: BandLevel
+  jobCapabilityName: string
 }
-
-export default JobRole;
