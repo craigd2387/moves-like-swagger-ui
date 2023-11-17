@@ -5,7 +5,7 @@ import roleAccess from '../middleware/authorisedRoles';
 import UserRole from '../model/userRole';
 
 export default function (app: Application) {
-  app.get('/jobs', roleAccess([UserRole.Admin,UserRole.User]), async (req: Request, res: Response) => {
+  app.get('/jobs', roleAccess([UserRole.Admin, UserRole.User]), async (req: Request, res: Response) => {
     try {
       // Call the getJobRoles function directly
       const jobRoles: JobRole[] = await getJobRoles();
