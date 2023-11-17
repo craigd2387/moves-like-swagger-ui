@@ -1,7 +1,7 @@
 import JobSpecificationResponse from '../../../model/jobSpecificationResponse';
-import { getJobSpec } from '../../../service/ServiceJob';
+import { getJobSpec } from '../../../service/jobService';
 import JobRole from '../../../model/jobRole';
-import { getJobRoles } from '../../../service/ServiceJob';
+import { getJobRoles } from '../../../service/jobService';
 const axios = require('axios');
 const MockAdapter = require('axios-mock-adapter');
 const chai = require('chai');

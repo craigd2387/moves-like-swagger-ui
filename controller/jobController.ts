@@ -3,7 +3,7 @@ import { Application, Request, Response } from 'express';
 import JobRole from '../model/jobRole';
 import JobSpecificationResponse from '../model/jobSpecificationResponse';
 // import job service class
-import { getJobSpec, getJobRoles } from '../service/ServiceJob';
+import { getJobSpec, getJobRoles } from '../service/jobService';
 
 export default function (app: Application) {
   // route to view list of job roles
