@@ -1,18 +1,17 @@
 import * as dotenv from 'dotenv';
 import JobRole from '../model/jobRole';
-  // import jobSpecificationResponse model
-  import JobSpecificationResponse from '../model/jobSpecificationResponse';
-  // import axios
-  const axios = require('axios');
+// import jobSpecificationResponse model
+import JobSpecificationResponse from '../model/jobSpecificationResponse';
+// import axios
+const axios = require('axios');
 
 dotenv.config();
-
 const { API_URL } = process.env;
 
 // Function to get all job roles from the server
 export async function getJobRoles(): Promise<JobRole[]> {
   try {
-    const response = await axios.get(`http://localhost:8080/api/job-roles`);
+    const response = await axios.get(`${API_URL}/api/job-roles`);
 
     return response.data;
   } catch (e) {
@@ -24,9 +23,8 @@ export async function getJobRoles(): Promise<JobRole[]> {
 // getJobSpec method
 export async function getJobSpec(id: number): Promise<JobSpecificationResponse> {
   try {
-    console.log(`get job spec ${id}`)
     // axios call to api
-    const response = await axios.get(`http://localhost:8080/api/job-specification/${id}`);
+    const response = await axios.get(`${API_URL}/api/job-specification/${id}`);
     if (response.data == null) {
       throw new Error();
     }

@@ -1,6 +1,7 @@
 class JobRole {
   jobId: number;
-  jobName: string
+
+  jobName: string;
 }
 
 export default JobRole;
