@@ -5,11 +5,11 @@
   "main": "index.js",
   "scripts": {
     "start": "npx tsc && cp -R views dist && node dist/app.js",
-    "test": "ts-mocha -p ./tsconfig.json ./test/**/**/*.ts",
+    "test": "ts-mocha -p ./tsconfig.json ./test/unit/**/*.ts",
+    "test-pa11y": "./node_modules/.bin/pa11y-ci",
     "lint": "eslint .",
     "lint-fix": "eslint . --fix",
-    "test-ui": "mocha --timeout 10000 test/ui/**/*.js",
-    "test-pa11y": "./node_modules/.bin/pa11y-ci"
+    "test-ui": "mocha --timeout 10000 test/ui/**/*.js"
   },
   "repository": {
     "type": "git",
