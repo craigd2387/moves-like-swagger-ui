@@ -3,7 +3,11 @@
 
 name: Node.js CI
 
-on: push
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
     
 
 jobs:
@@ -25,4 +29,4 @@ jobs:
         cache: 'npm'
     
     - run: npm ci && npx tsc
-    
+

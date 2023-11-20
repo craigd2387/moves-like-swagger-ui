@@ -1,0 +1,98 @@
+{% extends "master.njk" %}
+{% block navigationLinks %}
+                        <ul class="mega-menu__items js-menu-items">
+                            <li class="mega-menu__primary-item js-menu-primary-item">
+                                <div class="mega-menu__primary-item-label">
+                                    <a href="/jobs" class="mega-menu__link mega-menu__title">
+                                        Jobs
+                                    </a>
+                                </div>
+                            </li>
+                            <li class="mega-menu__primary-item js-menu-primary-item">
+                                <div class="mega-menu__primary-item-label">
+                                    <a href="#" class="mega-menu__link mega-menu__title">
+                                        Link example 2
+                                    </a>
+                                </div>
+                            </li>
+                        </li>
+                        <li class="mega-menu__primary-item js-menu-primary-item">
+                            <div class="mega-menu__primary-item-label">
+                                <a href="#" class="mega-menu__link mega-menu__title">
+                                    Link example 3
+                                </a>
+                            </div>
+                        </li>
+                        <li class="mega-menu__primary-item js-menu-primary-item">
+                            <div class="mega-menu__primary-item-label">
+                                <a href="#" class="mega-menu__link mega-menu__title">
+                                    Link example 4
+                                </a>
+                            </div>
+                        </li>
+                        <li class="mega-menu__primary-item js-menu-primary-item">
+                            <div class="mega-menu__primary-item-label">
+                                <a href="#" class="mega-menu__link mega-menu__title">
+                                    Link example 5
+                                </a>
+                            </div>
+                        </li>
+                        </ul>
+                        {% endblock %}
+                        
+                    {% block hamburger %}
+                    <div class="header__menu" id="hamburger"> 
+                        <button type="button" class="hamburger" onclick="dropdownToggle()" title="Menu button">
+                            <i class="icon-menu js-mega-menu-btn"></i>
+                            <span class="sr-only">Menu Button</span>
+                        </button>
+                    </div>
+                    {% endblock %}
+                
+   {% block dropdown %}
+    <ul class="dropdown" id="dropdown">
+        <div class="row" style="padding-bottom: 10%; padding-top: 5%;"><li><a class=menu-item href="/jobs">Jobs</a></li></div>
+        
+        <div class="row" style="padding-bottom: 10%;"><li><a class=menu-item href="#">Link Example 2</a></li></div>
+        <div class="row" style="padding-bottom: 10%;"><li><a class=menu-item href="#">Link Example 3</a></li></div>
+        <div class="row" style="padding-bottom: 10%;"><li><a class=menu-item href="#">Link Example 4</a></li></div>
+        <div class="row" style="padding-bottom: 10%;"><li><a class=menu-item href="#">Link Example 5</a></li></div>
+    </ul>
+    {% endblock %}
+   
+    
+    {% block content %}
+    {% endblock%}
+   
+    {% block mobileFooter %}
+    <footer class="mobileFooter" id="mobileFooter">
+        <div class="container">
+            <div class="col">
+                <div class="row">
+                    <div class="col">
+                        <p> <small><small> Upper Crescent Belfast BT7 1NT </small></small> </p>
+                    </div>
+                    <div class="col">
+                        <p> <small><small> Tel: 028 9057 1100</small></small> </p>
+                    </div>
+                </div>
+            </div>    
+            <div class="row">
+                <div class="col"><p><small><small>© 2023 Kainos. Registered in NI NI019370</small></small></p></div></div>
+            </div>
+        </div>
+    </footer>
+    {% endblock %}
+    
+    {% block script %}
+    <script>
+        function dropdownToggle() {
+            const dropdown = document.getElementById('dropdown');
+            if (dropdown.style.display === 'block') {
+                dropdown.style.display = 'none';
+            } else {
+                dropdown.style.display = 'block';
+            }
+        }       
+    </script>
+    {% endblock %}
