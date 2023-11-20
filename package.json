@@ -5,17 +5,11 @@
   "main": "index.js",
   "scripts": {
     "start": "npx tsc && cp -R views dist && node dist/app.js",
-<<<<<<< HEAD
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "test-ui": "mocha --timeout 10000 test/ui/JobRolesTests.js",
-    "lint": "eslint ."
-=======
     "test": "ts-mocha -p ./tsconfig.json ./test/**/**/*.ts",
     "lint": "eslint .",
     "lint-fix": "eslint . --fix",
     "test-ui": "mocha --timeout 10000 test/ui/**/*.js",
     "test-pa11y": "./node_modules/.bin/pa11y-ci"
->>>>>>> main
   },
   "repository": {
     "type": "git",
