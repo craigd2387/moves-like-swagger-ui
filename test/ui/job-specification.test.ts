@@ -1,6 +1,9 @@
 import { Builder, By, until, WebDriver } from 'selenium-webdriver';
+import * as dotenv from 'dotenv';
 import { expect } from 'chai';
 import * as chrome from 'selenium-webdriver/chrome';
+dotenv.config();
+const { UI_URL } = process.env;
 
 describe('Job Specification Page', function() {
     this.timeout(100000);
@@ -12,7 +15,7 @@ describe('Job Specification Page', function() {
       options.addArguments('--headless');
       options.addArguments('--window-size=1920,1080');
       driver = await new Builder().forBrowser('chrome').setChromeOptions(options).build();
-      await driver.get('http://localhost:3000/job-specification/:id');
+      await driver.get(`${UI_URL}/job-specification/:id`);
     });
    
     describe('"more detail" button', function() {
