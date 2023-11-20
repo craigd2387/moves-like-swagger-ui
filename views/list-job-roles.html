@@ -16,6 +16,13 @@
     </div>
     {% else %}
   <div class="container job-roles-list">
+
+    {% if messages.success  %} 
+    <div class="alert alert-success" role="alert">
+        <h2>{{ messages.success }}</h2>
+    </div>
+    {% endif %}
+
     {% if jobRoles and jobRoles.length > 0 %}
       <table class="table">
         <thead>
@@ -31,7 +38,8 @@
               <td id='job_role_{{ jobRole.jobId }}_{{ jobRole.jobName }}'><a href="/job-specification/{{ jobRole.jobId }}"><u>{{
                 jobRole.jobName }}</u></a></td>
               <td id='job_capability_{{ jobRole.jobId }}_{{ jobRole.jobCapabilityName }}'>{{ jobRole.jobCapabilityName }}</td>
-              <td id='job_bandLevel_{{ jobRole.jobId }}_{{ jobRole.bandLevel.bandId }}'>{{ jobRole.bandLevel.bandName }}</td>
+              <td id='job_bandLevel_{{ jobRole.jobId }}_{{ jobRole.bandLevel.bandLevelId }}'>{{ jobRole.bandLevel.bandName }}</td>
+              <td><form action="/jobs/{{ jobRole.jobId }}" method="post"><button type="submit" class="btn btn-danger">Delete</button></form></td>
             </tr>
           {% endfor %}
         </tbody>
