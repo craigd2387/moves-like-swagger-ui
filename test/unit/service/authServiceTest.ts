@@ -19,10 +19,11 @@ describe('Auth service unit tests', () => {
     it('should return a valid token when correct credentials are passed', async () => {
       const mock = new MockAdapter(axios);
       const URL = `${process.env.API_URL}/api/login`;
+      // when credentials posted, respond with status 200 and fake jwt
       mock.onPost(URL).reply(200, FAKE_JWT);
-
+      // call on login method in auth service with login credentials
       const token = await login(LOGIN_CREDENTIALS);
-
+      // check fake jwt returned when call to service
       expect(token).to.equal(FAKE_JWT);
     });
   });
@@ -31,9 +32,11 @@ describe('Auth service unit tests', () => {
     it('should return 401 when invalid credentials are passed', async () => {
       const mock = new MockAdapter(axios);
       const URL = `${process.env.API_URL}/api/login`;
+      // respond with 401 unauthorized when credentials posted
       mock.onPost(URL).reply(401);
-
+      // call on login method in auth service with login credentials
       const token = await login(LOGIN_CREDENTIALS);
+      // check null token returned
       expect(token).to.deep.equal(null);
     });
   });
@@ -42,15 +45,17 @@ describe('Auth service unit tests', () => {
     it('should throw exception when 500 error returned by server', async () => {
       const mock = new MockAdapter(axios);
       const URL = `${process.env.API_URL}/api/login`;
+      // respond with 500 internal server error when credentials posted
       mock.onPost(URL).reply(500);
 
       let error = null
       try {
+        // call on login method in auth service with login credentials
         await login(LOGIN_CREDENTIALS);
       } catch(e){
         error = e.message;
       }
-
+      // error returned from auth service to be could not login
       expect(error).to.equal("Could not login");
     });
   });
