@@ -65,7 +65,9 @@ describe('View Job Roles', function() {
 
     try {
       const navbar = await driver.findElement(By.id('menu-items'));
-      const jobsLink = await navbar.findElement(By.linkText('Jobs'));
+      const navbarInner = await navbar.findElement(By.className('mega-menu js-mega-menu'));
+      const navbarInner2 = await navbarInner.findElement(By.className('mega-menu__items js-menu-items'));
+      const jobsLink = await navbarInner2.findElement(By.id('jobsLink'));
       await new Promise(resolve => setTimeout(resolve, 10000));
       await jobsLink.click();
 
