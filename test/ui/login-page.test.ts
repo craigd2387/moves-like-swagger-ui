@@ -43,9 +43,9 @@ describe('Home Page', function() {
 describe('View Job Roles', function() {
   it('should load job list when logged in', async function() {
 
-    const button = await driver.findElement(By.id('jobsLink'));
-    await new Promise(resolve => setTimeout(resolve, 15000));
-    await button.click();
+    const jobsLink = await driver.findElement(By.id('jobsLink'));
+    await new Promise(resolve => setTimeout(resolve, 10000));
+    await jobsLink.click();
 
     const currentUrl = await driver.getCurrentUrl();
     expect(currentUrl).to.include('http://localhost:3000/jobs');
