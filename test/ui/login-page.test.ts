@@ -49,7 +49,7 @@ describe('View Job Roles', function() {
 
   it('should load job list when logged in', async function() {
 
-    const jobsLink = await driver.findElement(By.xpath('//*[@id="jobsLink"]'));
+    const jobsLink = await driver.findElement(By.id('jobsLink'));
     await new Promise(resolve => setTimeout(resolve, 20000));
     await jobsLink.click();
 
