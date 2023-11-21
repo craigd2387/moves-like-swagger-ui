@@ -41,6 +41,12 @@ describe('Home Page', function() {
 });
 
 describe('View Job Roles', function() {
+
+  it('should begin at homepage', async function() {
+    const finalUrl = await driver.getCurrentUrl();
+    expect(finalUrl).to.include('http://localhost:3000');
+});
+
   it('should load job list when logged in', async function() {
 
     const jobsLink = await driver.findElement(By.id('jobsLink'));
