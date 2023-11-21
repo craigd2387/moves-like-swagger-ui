@@ -11,8 +11,8 @@
 {% block content %}
 
     {% if errormessage %} 
-    <div class="alert alert-danger text-center" role="alert">
-        {{ errormessage }}
+    <div class="alert alert-danger" role="alert">
+        <h2>{{ errormessage }}</h2>
     </div>
     {% else %}
   <div class="container job-roles-list">
@@ -22,13 +22,16 @@
           <tr>
             <th scope="col">Job Role</th>
             <th scope="col">Capability</th>
+            <th scope="col">Band Level</th>
           </tr>
         </thead>
         <tbody>
           {% for jobRole in jobRoles %}
             <tr class="job-role-row" id="job_role_{{ jobRole.jobId }}">
-              <td id='job_role_{{ jobRole.jobId }}_{{ jobRole.jobName }}'>{{ jobRole.jobName }}</td>
+              <td id='job_role_{{ jobRole.jobId }}_{{ jobRole.jobName }}'><a href="/job-specification/{{ jobRole.jobId }}"><u>{{
+                jobRole.jobName }}</u></a></td>
               <td id='job_capability_{{ jobRole.jobId }}_{{ jobRole.jobCapabilityName }}'>{{ jobRole.jobCapabilityName }}</td>
+              <td id='job_bandLevel_{{ jobRole.jobId }}_{{ jobRole.bandLevel.bandId }}'>{{ jobRole.bandLevel.bandName }}</td>
             </tr>
           {% endfor %}
         </tbody>
