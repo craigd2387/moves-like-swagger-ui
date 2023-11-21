@@ -8,7 +8,7 @@
     "test": "ts-mocha -p ./tsconfig.json ./test/**/**/*.ts",
     "lint": "eslint .",
     "lint-fix": "eslint . --fix",
-    "test-ui": "npm start & sleep 10 && ts-mocha -p ./tsconfig.json ./test/ui/*.ts",
+    "test-ui": "ts-mocha -p ./tsconfig.json ./test/ui/*.ts",
     "test-pa11y": "./node_modules/.bin/pa11y-ci"
   },
   "repository": {
