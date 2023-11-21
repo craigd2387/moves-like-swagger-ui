@@ -10,15 +10,15 @@
 
 {% block content %}
 
-    {% if errormessage %} 
-    <div class="alert alert-danger" role="alert">
-        <h2>{{ errormessage }}</h2>
+    {% if messages.error %} 
+    <div class="alert alert-danger d-flex justify-content-center mt-2 mb-2" role="alert">
+        <h2>{{ messages.error }}</h2>
     </div>
     {% else %}
   <div class="container job-roles-list">
 
     {% if messages.success  %} 
-    <div class="alert alert-success" role="alert">
+    <div class="alert alert-success d-flex justify-content-center mt-2 mb-2" role="alert">
         <h2>{{ messages.success }}</h2>
     </div>
     {% endif %}
@@ -39,9 +39,10 @@
                 jobRole.jobName }}</u></a></td>
               <td id='job_capability_{{ jobRole.jobId }}_{{ jobRole.jobCapabilityName }}'>{{ jobRole.jobCapabilityName }}</td>
               <td id='job_bandLevel_{{ jobRole.jobId }}_{{ jobRole.bandLevel.bandLevelId }}'>{{ jobRole.bandLevel.bandName }}</td>
-              <td><form action="/jobs/{{ jobRole.jobId }}" method="post"><button type="submit" class="btn btn-danger">Delete</button></form></td>
+              <td><form action="/jobs/{{ jobRole.jobId }}" method="post"><button id="delete_job_{{ jobRole.jobId }}" type="submit" class="btn btn-danger delete-button">Delete</button></form></td>
             </tr>
           {% endfor %}
+          <script src="/scripts/deleteJobButton.js"></script>
         </tbody>
       </table>
     {% else %}

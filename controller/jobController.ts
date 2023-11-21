@@ -13,7 +13,7 @@ export default function (app: Application) {
       // Render the response with jobRoles
       res.render('list-job-roles', { jobRoles });
     } catch (e) {
-      res.locals.errormessage = 'An error occured fetching the data!';
+      req.flash('error', 'An error occurred, unable to fetch the data');
       res.render('list-job-roles', { jobRoles: [] });
     }
   });
@@ -39,11 +39,12 @@ export default function (app: Application) {
 
     try {
       await deleteJob(Number(id));
-      req.flash('success', 'Job deleted successfully'); // Need to use flash message here so it persists after the redirect (res.locals are lost on redirect)
+      req.flash('success', 'Job deleted successfully!'); // Need to use flash message here so it persists after the redirect (res.locals are lost on redirect)
       res.redirect('/jobs');
     } catch (e) {
-      console.log(e.message);
-      res.redirect('/jobs');
+      console.error(e.message);
+      req.flash('error', e.message);
+      res.redirect('back'); // Redirect back to the same page
     }
   });
 }

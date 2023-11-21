@@ -1,6 +1,6 @@
 // class represents jobSpecificationResponse object returned from API
 class JobSpecificationResponse {
-  jobID: number;
+  jobId: number;
 
   jobName: string;
 
