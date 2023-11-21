@@ -15,13 +15,13 @@ describe('Login Page', function() {
   });
 
     it('should log in successfully', async function () {
-      const Url: string = 'http://localhost:3000/login';
+      const Url: string = 'https://mjz7ptyppt.eu-west-1.awsapprunner.com/login';
       await driver.get(Url);
 
       console.log(`Page "${Url}" opened`);
 
       const currentUrl = await driver.getCurrentUrl();
-      expect(currentUrl).to.include('http://localhost:3000/login');
+      expect(currentUrl).to.include('https://mjz7ptyppt.eu-west-1.awsapprunner.com/login');
 
       const usernameBox = await driver.findElement(By.id('username'));
       await usernameBox.sendKeys('test@kainos.com');
@@ -33,17 +33,17 @@ describe('Login Page', function() {
       await loginButton.click();
 
       const finalUrl = await driver.getCurrentUrl();
-      expect(finalUrl).to.include('http://localhost:3000/');
+      expect(finalUrl).to.include('https://mjz7ptyppt.eu-west-1.awsapprunner.com');
   });
 
     it('should display error message with incorrect login credentials', async function () {
-      const Url: string = 'http://localhost:3000/login';
+      const Url: string = 'https://mjz7ptyppt.eu-west-1.awsapprunner.com/login';
       await driver.get(Url);
 
       console.log(`Page "${Url}" opened`);
 
       const currentUrl = await driver.getCurrentUrl();
-      expect(currentUrl).to.include('http://localhost:3000/login');
+      expect(currentUrl).to.include('https://mjz7ptyppt.eu-west-1.awsapprunner.com/login');
 
       const usernameBox = await driver.findElement(By.id('username'));
       await usernameBox.sendKeys('false-email');
