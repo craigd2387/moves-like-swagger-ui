@@ -52,7 +52,10 @@ describe('View Job Roles', function() {
     // const jobsLink = await driver.findElement(By.linkText('Jobs'));
     // await new Promise(resolve => setTimeout(resolve, 10000));
     // await jobsLink.click();
-    const jobsLink = await driver.wait(until.elementLocated(By.id('jobsLink')), 5000);
+
+    const navbar = await driver.findElement(By.id('menu-items'));
+    const jobsLink = await navbar.findElement(By.linkText('Jobs'));
+    await new Promise(resolve => setTimeout(resolve, 10000));
     await jobsLink.click();
 
     const currentUrl = await driver.getCurrentUrl();
