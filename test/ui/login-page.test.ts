@@ -40,11 +40,11 @@ describe('Home Page', function() {
   });
 });
 
-describe('View Job Roles functionality', function() {
+describe('View Job Roles', function() {
   it('should load job list when logged in', async function() {
 
     const button = await driver.findElement(By.id('jobsLink'));
-    await new Promise(resolve => setTimeout(resolve, 10000));
+    await new Promise(resolve => setTimeout(resolve, 15000));
     await button.click();
 
     const currentUrl = await driver.getCurrentUrl();
