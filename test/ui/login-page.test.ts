@@ -49,8 +49,10 @@ describe('View Job Roles', function() {
 
   it('should load job list when logged in', async function() {
 
-    const jobsLink = await driver.findElement(By.linkText('Jobs'));
-    await new Promise(resolve => setTimeout(resolve, 10000));
+    // const jobsLink = await driver.findElement(By.linkText('Jobs'));
+    // await new Promise(resolve => setTimeout(resolve, 10000));
+    // await jobsLink.click();
+    const jobsLink = await driver.wait(until.elementLocated(By.id('jobsLink')), 5000);
     await jobsLink.click();
 
     const currentUrl = await driver.getCurrentUrl();
