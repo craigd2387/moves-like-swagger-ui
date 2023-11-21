@@ -16,63 +16,83 @@ describe('Home Page', function() {
 
   describe('Log in', function() {
     it('should log in successfully', async function () {
-      const Url: string = 'http://localhost:3000/login';
-      await driver.get(Url);
+      try{
+        const Url: string = 'http://localhost:3000/login';
+        await driver.get(Url);
 
-      console.log(`Page "${Url}" opened`);
+        console.log(`Page "${Url}" opened`);
 
-      const currentUrl = await driver.getCurrentUrl();
-      expect(currentUrl).to.include('http://localhost:3000/login');
+        const currentUrl = await driver.getCurrentUrl();
+        expect(currentUrl).to.include('http://localhost:3000/login');
 
-      const usernameBox = await driver.findElement(By.id('username'));
-      await usernameBox.sendKeys('test@kainos.com');
+        const usernameBox = await driver.findElement(By.id('username'));
+        await usernameBox.sendKeys('test@kainos.com');
 
-      const passwordBox = await driver.findElement(By.id('password'));
-      await passwordBox.sendKeys('testing');
+        const passwordBox = await driver.findElement(By.id('password'));
+        await passwordBox.sendKeys('testing');
 
-      const loginButton = await driver.findElement(By.id('submitbutton'));
-      await loginButton.click();
+        const loginButton = await driver.findElement(By.id('submitbutton'));
+        await loginButton.click();
+    } catch (error) {
+      console.error('Error during login:', error);
+      throw error;
+    }
   });
 
     it('should redirect to homepage', async function () {
-      const finalUrl = await driver.getCurrentUrl();
-      expect(finalUrl).to.include('http://localhost:3000');
+      try {
+        const finalUrl = await driver.getCurrentUrl();
+        expect(finalUrl).to.include('http://localhost:3000');
+      } catch (error) {
+        console.error('Error during redirect to homepage:', error);
+        throw error;
+      }
   });
 });
 
 describe('View Job Roles', function() {
-
   it('should begin at homepage', async function() {
-    const finalUrl = await driver.getCurrentUrl();
-    expect(finalUrl).to.include('http://localhost:3000');
+    try{
+      const finalUrl = await driver.getCurrentUrl();
+      expect(finalUrl).to.include('http://localhost:3000');
+    } catch (error) {
+      console.error('Error during check for homepage:', error);
+      throw error;
+    }
 });
 
   it('should load job list when logged in', async function() {
 
-    // const jobsLink = await driver.findElement(By.linkText('Jobs'));
-    // await new Promise(resolve => setTimeout(resolve, 10000));
-    // await jobsLink.click();
+    try {
+      const navbar = await driver.findElement(By.id('menu-items'));
+      const jobsLink = await navbar.findElement(By.linkText('Jobs'));
+      await new Promise(resolve => setTimeout(resolve, 10000));
+      await jobsLink.click();
 
-    const navbar = await driver.findElement(By.id('menu-items'));
-    const jobsLink = await navbar.findElement(By.linkText('Jobs'));
-    await new Promise(resolve => setTimeout(resolve, 10000));
-    await jobsLink.click();
-
-    const currentUrl = await driver.getCurrentUrl();
-    expect(currentUrl).to.include('http://localhost:3000/jobs');
-    
-    const jobTable = await driver.wait(until.elementLocated(By.id('jobRolesTable')), 30000);
-    expect(await jobTable.isDisplayed()).to.be.true;
+      const currentUrl = await driver.getCurrentUrl();
+      expect(currentUrl).to.include('http://localhost:3000/jobs');
+      
+      const jobTable = await driver.wait(until.elementLocated(By.id('jobRolesTable')), 30000);
+      expect(await jobTable.isDisplayed()).to.be.true;
+    } catch (error) {
+      console.error('Error during job list loading:', error);
+      throw error;
+    }
   });
 
   it('should return to homepage via home button', async function() {
 
-    const button = await driver.findElement(By.id('homeButton'));
-    await new Promise(resolve => setTimeout(resolve, 10000));
-    await button.click();
+    try {
+      const button = await driver.findElement(By.id('homeButton'));
+      await new Promise(resolve => setTimeout(resolve, 10000));
+      await button.click();
 
-    const currentUrl = await driver.getCurrentUrl();
-    expect(currentUrl).to.include('http://localhost:3000');
+      const currentUrl = await driver.getCurrentUrl();
+      expect(currentUrl).to.include('http://localhost:3000');
+    } catch (error) {
+      console.error('Error during return to homepage:', error);
+      throw error;
+    }
   });
 });
 
