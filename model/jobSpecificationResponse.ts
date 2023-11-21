@@ -5,6 +5,8 @@ class JobSpecificationResponse {
   jobSpecification: string;
 
   sharepointLink: string;
+
+  responsibilitiesList: string[];
 }
 
 export default JobSpecificationResponse;
