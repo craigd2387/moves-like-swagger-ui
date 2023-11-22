@@ -61,16 +61,21 @@ describe('View Job Roles', function() {
     }
 });
 
-  it('should load job list when logged in', async function() {
-
+  it('should direct to jobs page', async function() {
     try {
-      const navbar = await driver.findElement(By.id('menu-items'));
-      const navbarInner = await navbar.findElement(By.className('mega-menu js-mega-menu'));
-      const navbarInner2 = await navbarInner.findElement(By.className('mega-menu__items js-menu-items'));
-      const jobsLink = await navbarInner2.findElement(By.id('jobsLink'));
-      await new Promise(resolve => setTimeout(resolve, 10000));
-      await jobsLink.click();
+      const jobsLink = await driver.findElement(By.id('jobsLink'));
+        await new Promise(resolve => setTimeout(resolve, 10000));
+        await jobsLink.click();
 
+      const currentUrl = await driver.getCurrentUrl();
+      expect(currentUrl).to.include('http://localhost:3000/jobs');
+    } catch (error) {
+      console.error('Error with jobs link:', error);
+    }
+  });
+
+  it('should load job list when logged in', async function() {
+    try {
       const currentUrl = await driver.getCurrentUrl();
       expect(currentUrl).to.include('http://localhost:3000/jobs');
       
