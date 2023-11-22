@@ -67,9 +67,24 @@ describe('View Job Roles', function() {
         await driver.get(Url);
 
         console.log(`Page "${Url}" opened`);
+
+      const currentUrl = await driver.getCurrentUrl();
+      expect(currentUrl).to.include('http://localhost:3000/login');
       
       const jobTable = await driver.wait(until.elementLocated(By.id('jobRolesTable')), 30000);
       expect(await jobTable.isDisplayed()).to.be.true;
+
+      const headerRow = await jobTable.findElement(By.css('thead tr'));
+
+      const headerCells = await headerRow.findElements(By.css('th'));
+
+      expect(headerCells.length).to.equal(3);
+
+      const expectedHeadings = ['Job Role', 'Capability', 'Band Level'];
+      for (let i = 0; i < headerCells.length; i++) {
+        const actualHeading = await headerCells[i].getText();
+        expect(actualHeading).to.equal(expectedHeadings[i]);
+      }
     } catch (error) {
       console.error('Error during job list loading:', error);
       throw error;
