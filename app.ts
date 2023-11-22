@@ -1,6 +1,8 @@
-import express, { Request, Response } from 'express';
-import path from 'path';
-import * as nunjucks from 'nunjucks';
+import { Request, Response } from 'express';
+import express = require('express');
+import flash = require('express-flash');
+import path = require('path');
+import nunjucks = require('nunjucks');
 import * as dotenv from 'dotenv';
 import session from 'express-session';
 import jobController from './controller/jobController';
@@ -27,6 +29,9 @@ app.use(express.static('public'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
+app.use(session({ secret: process.env.CACHE_SECRET, cookie: { maxAge: 60000 } }));
+app.use(flash());
+
 declare module 'express-session' {
   interface SessionData {
     token: String
@@ -37,6 +42,7 @@ app.use(session({
   secret: process.env.CACHE_SECRET ? process.env.CACHE_SECRET : 'TEST',
   cookie: { maxAge: 60000 },
 }));
+
 
 authController(app);
 app.use(authMiddleware);

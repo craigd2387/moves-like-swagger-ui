@@ -1,11 +1,9 @@
 import { Application, Request, Response } from 'express';
-// import jobSpecificationResponse model
 import JobRole from '../model/jobRole';
 import roleAccess from '../middleware/authorisedRoles';
 import UserRole from '../model/userRole';
 import JobSpecificationResponse from '../model/jobSpecificationResponse';
-// import job service class
-import { getJobSpec, getJobRoles } from '../service/jobService';
+import { getJobSpec, getJobRoles, deleteJob } from '../service/jobService';
 
 export default function (app: Application) {
   // route to view list of job roles
@@ -17,7 +15,7 @@ export default function (app: Application) {
       // Render the response with jobRoles
       res.render('list-job-roles', { jobRoles });
     } catch (e) {
-      res.locals.errormessage = 'An error occured fetching the data!';
+      req.flash('error', 'An error occurred, unable to fetch the data');
       res.render('list-job-roles', { jobRoles: [] });
     }
   });
@@ -34,6 +32,21 @@ export default function (app: Application) {
       console.error(e);
       // render job-specification page passing in relevant error message
       res.render('job-specification', { error: e.message });
+    }
+  });
+
+  // route to delete a job
+  app.post('/jobs/:id', async (req: Request, res: Response) => {
+    const { id } = req.params;
+
+    try {
+      await deleteJob(Number(id));
+      req.flash('success', 'Job deleted successfully!'); // Need to use flash message here so it persists after the redirect (res.locals are lost on redirect)
+      res.redirect('/jobs');
+    } catch (e) {
+      console.error(e.message);
+      req.flash('error', e.message);
+      res.redirect('back'); // Redirect back to the same page
     }
   });
 }
