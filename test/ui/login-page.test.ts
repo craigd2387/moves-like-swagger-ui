@@ -69,11 +69,22 @@ describe('View Job Roles', function() {
         console.log(`Page "${Url}" opened`);
 
       const currentUrl = await driver.getCurrentUrl();
-      expect(currentUrl).to.include('http://localhost:3000/login');
+      expect(currentUrl).to.include('http://localhost:3000/jobs');
       
       const jobTable = await driver.wait(until.elementLocated(By.id('jobRolesTable')), 30000);
       expect(await jobTable.isDisplayed()).to.be.true;
+    } catch (error) {
+      console.error('Error during job list loading:', error);
+      throw error;
+    }
+  });
 
+  it('should contain headings "Job Role", "Capability" and "Band Level"', async function () {
+    try {
+      const currentUrl = await driver.getCurrentUrl();
+      expect(currentUrl).to.include('http://localhost:3000/jobs');
+      
+      const jobTable = await driver.wait(until.elementLocated(By.id('jobRolesTable')), 30000);
       const headerRow = await jobTable.findElement(By.css('thead tr'));
 
       const headerCells = await headerRow.findElements(By.css('th'));
@@ -86,7 +97,7 @@ describe('View Job Roles', function() {
         expect(actualHeading).to.equal(expectedHeadings[i]);
       }
     } catch (error) {
-      console.error('Error during job list loading:', error);
+      console.error('Error with job list content:', error);
       throw error;
     }
   });
