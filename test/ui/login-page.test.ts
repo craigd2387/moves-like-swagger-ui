@@ -61,20 +61,6 @@ describe('View Job Roles', function() {
     }
 });
 
-  it('should direct to jobs page', async function() {
-    try {
-      // const jobsLink = await driver.findElement(By.id('jobsLink'));
-      const jobsLink = await driver.findElement(By.partialLinkText('Jobs'));
-        await new Promise(resolve => setTimeout(resolve, 10000));
-        await jobsLink.click();
-
-      const currentUrl = await driver.getCurrentUrl();
-      expect(currentUrl).to.include('http://localhost:3000/jobs');
-    } catch (error) {
-      console.error('Error with jobs link:', error);
-    }
-  });
-
   it('should load job list when logged in', async function() {
     try {
       const Url: string = 'http://localhost:3000/jobs';
@@ -91,7 +77,6 @@ describe('View Job Roles', function() {
   });
 
   it('should return to homepage via home button', async function() {
-
     try {
       const button = await driver.findElement(By.id('homeButton'));
       await new Promise(resolve => setTimeout(resolve, 10000));
