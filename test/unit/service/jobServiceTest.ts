@@ -180,5 +180,21 @@ describe('jobService', function () {
       }
       expect(error).to.equal('The job you are trying to delete does not exist');
     });
+
+    it('should NOT throw error when 204 reponse code is returned fromm the API', async () => {
+      let error;
+
+      const mock = new MockAdapter(axios);
+
+      const id = 1;
+      mock.onDelete(`${API_URL}/api/job-roles/${id}`).reply(204);
+
+      try {
+        await deleteJob(id);
+       } catch (e) {
+        error = e.message;
+      }
+    expect(error).to.be.undefined; // No error should be thrown
+    });
   });
 }); // end of describe jobService
