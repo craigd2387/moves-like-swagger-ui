@@ -1,5 +1,5 @@
 import JobSpecificationResponse from '../../../model/jobSpecificationResponse';
-import { getJobSpec } from '../../../service/jobService';
+import { deleteJob, getJobSpec } from '../../../service/jobService';
 import JobRole from '../../../model/jobRole';
 import { getJobRoles } from '../../../service/jobService';
 const axios = require('axios');
@@ -131,4 +131,70 @@ describe('jobService', function () {
       expect(error).to.equal('Job does not exist');
     });
   }); // end of describe getJobSpec
+
+  describe('deleteJob', function () {
+    it('should throw error when no response is returned from the API', async () => {
+      let error;
+
+      const mock = new MockAdapter(axios);
+
+      const id: number = 1;
+      mock.onDelete(`${API_URL}/api/job-roles/${id}`).networkError();
+
+      try {
+        await deleteJob(id);
+      } catch (e) {
+        error = e.message;
+      }
+      expect(error).to.equal('Something went wrong: failed to delete job');
+    });
+
+    it('should throw error when 500 response code is returned from the API', async () => {
+      let error;
+
+      const mock = new MockAdapter(axios);
+
+      const id: number = 1;
+      mock.onDelete(`${API_URL}/api/job-roles/${id}`).reply(500);
+
+      try {
+        await deleteJob(id);
+      } catch (e) {
+        error = e.message;
+      }
+      expect(error).to.equal('Something went wrong: failed to delete job');
+    });
+
+    it('should throw error when 404 response code is returned from the API', async () => {
+      let error;
+
+      const mock = new MockAdapter(axios);
+
+      const id: number = 1;
+      mock.onDelete(`${API_URL}/api/job-roles/${id}`).reply(404);
+
+      try {
+        await deleteJob(id);
+      } catch (e) {
+        error = e.message;
+      }
+      expect(error).to.equal('The job you are trying to delete does not exist');
+    });
+
+    it('should NOT throw error when 204 reponse code is returned fromm the API', async () => {
+      let error;
+
+      const mock = new MockAdapter(axios);
+
+      const id = 1;
+      mock.onDelete(`${API_URL}/api/job-roles/${id}`).reply(204);
+
+      try {
+        await deleteJob(id);
+       } catch (e) {
+        error = e.message;
+      }
+    expect(error).to.be.undefined; // No error should be thrown
+    });
+  });
 }); // end of describe jobService
