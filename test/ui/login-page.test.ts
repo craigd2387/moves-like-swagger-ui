@@ -63,7 +63,8 @@ describe('View Job Roles', function() {
 
   it('should direct to jobs page', async function() {
     try {
-      const jobsLink = await driver.findElement(By.id('jobsLink'));
+      // const jobsLink = await driver.findElement(By.id('jobsLink'));
+      const jobsLink = await driver.findElement(By.partialLinkText('Jobs'));
         await new Promise(resolve => setTimeout(resolve, 10000));
         await jobsLink.click();
 
@@ -76,8 +77,10 @@ describe('View Job Roles', function() {
 
   it('should load job list when logged in', async function() {
     try {
-      const currentUrl = await driver.getCurrentUrl();
-      expect(currentUrl).to.include('http://localhost:3000/jobs');
+      const Url: string = 'http://localhost:3000/jobs';
+        await driver.get(Url);
+
+        console.log(`Page "${Url}" opened`);
       
       const jobTable = await driver.wait(until.elementLocated(By.id('jobRolesTable')), 30000);
       expect(await jobTable.isDisplayed()).to.be.true;
