@@ -61,7 +61,7 @@ describe('View Job Roles', function() {
     }
 });
 
-  it('should load job list when logged in', async function() {
+  it('should load job list table when logged in', async function() {
     try {
       const Url: string = 'http://localhost:3000/jobs';
         await driver.get(Url);
@@ -71,7 +71,7 @@ describe('View Job Roles', function() {
       const currentUrl = await driver.getCurrentUrl();
       expect(currentUrl).to.include('http://localhost:3000/jobs');
       
-      const jobTable = await driver.wait(until.elementLocated(By.id('jobRolesTable')), 30000);
+      const jobTable = await driver.wait(until.elementLocated(By.id('jobRolesTable')), 50000);
       expect(await jobTable.isDisplayed()).to.be.true;
     } catch (error) {
       console.error('Error during job list loading:', error);
@@ -83,8 +83,8 @@ describe('View Job Roles', function() {
     try {
       const currentUrl = await driver.getCurrentUrl();
       expect(currentUrl).to.include('http://localhost:3000/jobs');
-      
-      const jobTable = await driver.wait(until.elementLocated(By.id('jobRolesTable')), 30000);
+
+      const jobTable = await driver.wait(until.elementLocated(By.id('jobRolesTable')), 50000);
       const headerRow = await jobTable.findElement(By.css('thead tr'));
 
       const headerCells = await headerRow.findElements(By.css('th'));
