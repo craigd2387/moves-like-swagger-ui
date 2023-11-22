@@ -59,7 +59,7 @@ Follow the steps below to set the necessary environment variables for this proje
 
   
 
-## Section 2
+## Section 2 - Testing
 
   
 
@@ -77,7 +77,7 @@ In this section, we outline the methods for testing the moves-like-swagger-ui ap
 
 ---
 
-## Section 3
+## Section 3 - Linting
 
   
 
