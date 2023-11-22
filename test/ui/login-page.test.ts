@@ -9,7 +9,7 @@ describe('Home Page', function() {
 
   before(async function() {
     const options = new chrome.Options();
-    options.addArguments('--headless');
+    // options.addArguments('--headless');
     options.addArguments('--window-size=1920,1080');
     driver = await new Builder().forBrowser('chrome').setChromeOptions(options).build();
   });
@@ -100,6 +100,48 @@ describe('View Job Roles', function() {
       console.error('Error with job list content:', error);
       throw error;
     }
+  });
+
+  it('should link the job to the correct content', async function() {
+    try {
+      const currentUrl = await driver.getCurrentUrl();
+      expect(currentUrl).to.include('http://localhost:3000/jobs');
+  
+      // Locate the first row and first cell in the table
+      const jobTable = await driver.wait(until.elementLocated(By.id('jobRolesTable')), 50000);
+      const firstRow = await jobTable.findElement(By.css('tbody tr:first-child'));
+      const firstCell = await firstRow.findElement(By.css('td:first-child a'));
+  
+      const firstCellTextContent = await firstCell.getText();
+      console.log('Text content of the first cell:', firstCellTextContent);
+      await new Promise(resolve => setTimeout(resolve, 10000))
+      
+      await firstCell.click();
+
+      const currentUrlAfterClick = await driver.getCurrentUrl();
+
+      const h1Element = await driver.findElement(By.id('jobSpecTitle'));
+      const textContentH1 = await h1Element.getText();
+
+      await driver.wait(until.urlMatches(/\/job-specification\/\d+/), 30000);
+
+      expect(firstCellTextContent).to.equal(textContentH1);    
+  
+    } catch (error) {
+      console.error('Error during clicking on the first cell:', error);
+      throw error;
+    }
+  });
+
+  it('should direct to the appropriate sharepoint when clicked', async function() {
+    const buttons = await driver.findElements(By.id('viewSharePointButton'));
+    const sharepointButton = buttons[0];
+    await sharepointButton.click();
+
+    await driver.wait(until.urlContains('sharepoint'), 20000);
+
+    const url = await driver.getCurrentUrl();
+    expect(url).to.include('sharepoint');
   });
 
   it('should return to homepage via home button', async function() {
