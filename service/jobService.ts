@@ -43,3 +43,18 @@ export async function getJobSpec(id: number): Promise<JobSpecificationResponse> 
     }
   }
 }
+
+// Delete a job with a specified ID
+export async function deleteJob(id: number): Promise<void> {
+  try {
+    await axios.delete(`${API_URL}/api/job-roles/${id}`);
+  } catch (e) {
+    if (!e.response || e.response.status === 500) {
+      throw new Error('Something went wrong: failed to delete job');
+    }
+
+    if (e.response.status === 404) {
+      throw new Error('The job you are trying to delete does not exist');
+    }
+  }
+}
