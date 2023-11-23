@@ -8,7 +8,6 @@ export default function authMiddleware(req:Request, res:Response, next: NextFunc
   }
 
   const JWT = jose.decodeJwt(req.session.token as string);
-  console.log(JWT); 
   const TODAY_IN_SECONDS = Date.now() / 1000;
 
   if (TODAY_IN_SECONDS >= JWT.exp) {
