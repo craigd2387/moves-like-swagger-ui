@@ -12,6 +12,9 @@ describe('Home Page', function() {
     options.addArguments('--headless');
     options.addArguments('--window-size=1920,1080');
     driver = await new Builder().forBrowser('chrome').setChromeOptions(options).build();
+    
+    // const validAdminName: string = process.env.VALID_ADMIN_NAME || '';
+    // const validAdminPassword: string = process.env.VALID_ADMIN_PASSWORD || '';
   });
 
   describe('Log in', function() {
@@ -26,10 +29,12 @@ describe('Home Page', function() {
         expect(currentUrl).to.include('http://localhost:3000/login');
 
         const usernameBox = await driver.findElement(By.id('username'));
-        await usernameBox.sendKeys('test@kainos.com');
+        const testValidUsername: string = process.env.TEST_VALID_USERNAME || '';
+        await usernameBox.sendKeys(testValidUsername);
 
         const passwordBox = await driver.findElement(By.id('password'));
-        await passwordBox.sendKeys('testing');
+        const testValidPassword: string = process.env.TEST_VALID_PASSWORD || '';
+        await passwordBox.sendKeys(testValidPassword);
 
         const loginButton = await driver.findElement(By.id('submitbutton'));
         await loginButton.click();

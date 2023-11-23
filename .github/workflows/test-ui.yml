@@ -27,6 +27,10 @@ jobs:
       env:
         API_URL: ${{ secrets.API_URL }}
         CACHE_SECRET: ${{ secrets.CACHE_SECRET }}
+        TEST_VALID_USERNAME: ${{ secrets.TEST_VALID_USERNAME }}
+        TEST_VALID_PASSWORD: ${{ secrets.TEST_VALID_PASSWORD }}
+        VALID_ADMIN_NAME: ${{ secrets.VALID_ADMIN_NAME }}
+        VALID_ADMIN_PASSWORD: ${{ secrets.VALID_ADMIN_PASSWORD }}
     
     - name: Wait for server
       run: sleep 10
@@ -36,6 +40,13 @@ jobs:
  
     - name: Run UI tests
       run: npm run test-ui
+      env:
+        API_URL: ${{ secrets.API_URL }}
+        CACHE_SECRET: ${{ secrets.CACHE_SECRET }}
+        TEST_VALID_USERNAME: ${{ secrets.TEST_VALID_USERNAME }}
+        TEST_VALID_PASSWORD: ${{ secrets.TEST_VALID_PASSWORD }}
+        VALID_ADMIN_NAME: ${{ secrets.VALID_ADMIN_NAME }}
+        VALID_ADMIN_PASSWORD: ${{ secrets.VALID_ADMIN_PASSWORD }}
  
     - name: Save Selenium Screenshots
       uses: actions/upload-artifact@v3
