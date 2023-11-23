@@ -24,6 +24,22 @@ Job Specification
     <p>{{ jobSpec.jobSpecification }}</p>
 </div>
 
+{% if jobSpec.responsibilitiesList and jobSpec.responsibilitiesList|length > 0 %}
+<div class="container" style="padding-top: 3%;">
+    <h2>Key responsibilities of a {{ jobSpec.jobName }}</h2>
+    <ul style="padding-top: 3%;">
+        {% set counter = 1 %}
+        {% for responsibility in jobSpec.responsibilitiesList %}
+        <li id="responsibility_{{ counter }}"><p>{{ responsibility }}</p></li>
+        {% set counter = counter + 1 %}
+        {% endfor %}
+    </ul>
+</div>
+{% else %}
+{% endif %}
+
+
+
 <div class="container d-flex flex-row justify-content-between" style="padding-top: 3%;">
     <a href="{{ jobSpec.sharepointLink }}" target="_blank">
         <button type="button" class="btn btn-success">More detail</button>
