@@ -1,13 +1,13 @@
 {% extends "master.njk" %}
 {% block navigationLinks %}
                         <ul class="mega-menu__items js-menu-items">
-                            <li class="mega-menu__primary-item js-menu-primary-item">
-                                <div class="mega-menu__primary-item-label">
-                                    <a href="/jobs" class="mega-menu__link mega-menu__title">
-                                        Jobs
-                                    </a>
-                                </div>
-                            </li>
+                            <a href="/jobs" class="mega-menu__link mega-menu__title" id="jobsLink">
+                                <li class="mega-menu__primary-item js-menu-primary-item">
+                                    <div class="mega-menu__primary-item-label">
+                                         Jobs
+                                    </div>
+                                </li>
+                            </a>
                             <li class="mega-menu__primary-item js-menu-primary-item">
                                 <div class="mega-menu__primary-item-label">
                                     <a href="#" class="mega-menu__link mega-menu__title">
@@ -58,7 +58,7 @@
                 
    {% block dropdown %}
     <ul class="dropdown" id="dropdown">
-        <div class="row" style="padding-bottom: 10%; padding-top: 5%;"><li><a class=menu-item href="/jobs">Jobs</a></li></div>
+        <div class="row" style="padding-bottom: 10%; padding-top: 5%;"><li><a class=menu-item href="/jobs" id="jobsLinkDrop">Jobs</a></li></div>
         <div class="row" style="padding-bottom: 10%;"><li><a class=menu-item href="#">Competencies</a></li></div>
         <div class="row" style="padding-bottom: 10%;"><li><a class=menu-item href="#">Career Lattice</a></li></div>
         <div class="row" style="padding-bottom: 10%;"><li><a class=menu-item href="#">Management</a></li></div>

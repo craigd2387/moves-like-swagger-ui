@@ -15,14 +15,12 @@
         <h2>{{ messages.error }}</h2>
     </div>
     {% else %}
-  <div class="container job-roles-list">
-
+  <div class="container job-roles-list" id="jobRolesTable">
     {% if messages.success  %} 
     <div class="alert alert-success d-flex justify-content-center mt-2 mb-2" role="alert">
         <h2>{{ messages.success }}</h2>
     </div>
     {% endif %}
-
     {% if jobRoles and jobRoles.length > 0 %}
       <table class="table">
         <thead>

@@ -9,7 +9,7 @@
     "test-pa11y": "./node_modules/.bin/pa11y-ci",
     "lint": "eslint .",
     "lint-fix": "eslint . --fix",
-    "test-ui": "mocha --timeout 10000 test/ui/**/*.js"
+    "test-ui": "ts-mocha -p ./tsconfig.json ./test/ui/*.ts"
   },
   "repository": {
     "type": "git",
@@ -53,7 +53,7 @@
     "eslint-plugin-promise": "^6.1.1",
     "mocha": "^10.2.0",
     "pa11y-ci": "~1.0",
-    "selenium-webdriver": "^4.9.0",
+    "selenium-webdriver": "^4.15.0",
     "ts-mocha": "^10.0.0",
     "typescript": "^5.2.2"
   },

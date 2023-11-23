@@ -1,6 +1,6 @@
 {
   "defaults": {
-    "standard": "WCAG2A",
+    "standard": "WCAG2AA",
     "runners": ["axe"],
     "viewports": [
       { "width": 1280, "height": 720 },
