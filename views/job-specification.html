@@ -33,11 +33,18 @@ Job Specification
     </ul>
 </div>
 
-<div class="container" style="padding-top: 3%;">
+<div class="container d-flex flex-row justify-content-between" style="padding-top: 3%;">
     <a href="{{ jobSpec.sharepointLink }}" target="_blank">
         <button type="button" class="btn btn-success">More detail</button>
     </a>
+    <div>
+        <form action="/jobs/{{ jobSpec.jobId }}" method="post">
+            <button id="delete_job_{{ jobSpec.jobId }}" type="submit" class="btn btn-danger delete-button">Delete</button>
+        </form>
+        <!-- Edit button goes here -->
+    </div>
 </div>
+<script src="/scripts/deleteJobButton.js"></script>
 
 {% endif %}
 
