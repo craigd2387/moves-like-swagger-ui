@@ -27,6 +27,7 @@ jobs:
       env:
         API_URL: ${{ secrets.API_URL }}
         CACHE_SECRET: ${{ secrets.CACHE_SECRET }}
+        UI_URL: ${{ secrets.UI_URL }}
         TEST_VALID_USERNAME: ${{ secrets.TEST_VALID_USERNAME }}
         TEST_VALID_PASSWORD: ${{ secrets.TEST_VALID_PASSWORD }}
         VALID_ADMIN_NAME: ${{ secrets.VALID_ADMIN_NAME }}
@@ -43,6 +44,7 @@ jobs:
       env:
         API_URL: ${{ secrets.API_URL }}
         CACHE_SECRET: ${{ secrets.CACHE_SECRET }}
+        UI_URL: ${{ secrets.UI_URL }}
         TEST_VALID_USERNAME: ${{ secrets.TEST_VALID_USERNAME }}
         TEST_VALID_PASSWORD: ${{ secrets.TEST_VALID_PASSWORD }}
         VALID_ADMIN_NAME: ${{ secrets.VALID_ADMIN_NAME }}

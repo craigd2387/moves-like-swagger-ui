@@ -1,6 +1,14 @@
 import { Builder, By, until, WebDriver } from 'selenium-webdriver';
 import { expect } from 'chai';
 import * as chrome from 'selenium-webdriver/chrome';
+import * as dotenv from 'dotenv';
+
+dotenv.config();
+const { UI_URL } = process.env;
+const { TEST_VALID_USERNAME } = process.env;
+const { TEST_VALID_PASSWORD } = process.env;
+const { VALID_ADMIN_NAME } = process.env;
+const { VALID_ADMIN_PASSWORD } = process.env;
 
 describe('Home Page', function() {
   this.timeout(100000);
@@ -12,32 +20,30 @@ describe('Home Page', function() {
     options.addArguments('--headless');
     options.addArguments('--window-size=1920,1080');
     driver = await new Builder().forBrowser('chrome').setChromeOptions(options).build();
-    
-    // const validAdminName: string = process.env.VALID_ADMIN_NAME || '';
-    // const validAdminPassword: string = process.env.VALID_ADMIN_PASSWORD || '';
   });
 
   describe('Log in', function() {
     it('should log in successfully', async function () {
       try{
-        const Url: string = 'http://localhost:3000/login';
+        const Url: string = (`${UI_URL}`);
         await driver.get(Url);
 
         console.log(`Page "${Url}" opened`);
 
         const currentUrl = await driver.getCurrentUrl();
-        expect(currentUrl).to.include('http://localhost:3000/login');
+        expect(currentUrl).to.include(`${UI_URL}/login`);
 
         const usernameBox = await driver.findElement(By.id('username'));
-        const testValidUsername: string = process.env.TEST_VALID_USERNAME || '';
-        await usernameBox.sendKeys(testValidUsername);
+        await usernameBox.sendKeys(`${TEST_VALID_USERNAME}`);
 
         const passwordBox = await driver.findElement(By.id('password'));
-        const testValidPassword: string = process.env.TEST_VALID_PASSWORD || '';
-        await passwordBox.sendKeys(testValidPassword);
+        await passwordBox.sendKeys(`${TEST_VALID_PASSWORD}`);
 
         const loginButton = await driver.findElement(By.id('submitbutton'));
         await loginButton.click();
+
+        // const redirectedPage = await driver.wait(until.urlIs(`${UI_URL}`), 10000);
+        // expect(redirectedPage).to.be.true;
     } catch (error) {
       console.error('Error during login:', error);
       throw error;
