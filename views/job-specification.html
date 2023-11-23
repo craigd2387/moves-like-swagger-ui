@@ -24,6 +24,7 @@ Job Specification
     <p>{{ jobSpec.jobSpecification }}</p>
 </div>
 
+{% if jobSpec.responsibilitiesList and jobSpec.responsibilitiesList|length > 0 %}
 <div class="container" style="padding-top: 3%;">
     <h2>Key responsibilities of a {{ jobSpec.jobName }}</h2>
     <ul style="padding-top: 3%;">
@@ -32,6 +33,9 @@ Job Specification
         {% endfor %}
     </ul>
 </div>
+{% else %}
+{% endif %}
+
 
 <div class="container d-flex flex-row justify-content-between" style="padding-top: 3%;">
     <a href="{{ jobSpec.sharepointLink }}" target="_blank">
