@@ -50,6 +50,14 @@ p{
     font-family: "Century Gothic", Arial, Helvetica, sans-serif; 
 }
 
+.alert.alert-danger {
+    font-family: "Century Gothic", Arial, Helvetica, sans-serif !important;
+}
+
+.form-group label {
+    font-family: "Century Gothic", Arial, Helvetica, sans-serif !important;
+}
+
 a{
     color: black;
 }

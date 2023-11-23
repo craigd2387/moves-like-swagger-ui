@@ -4,7 +4,7 @@ import flash = require('express-flash');
 import path = require('path');
 import nunjucks = require('nunjucks');
 import * as dotenv from 'dotenv';
-import session = require('express-session');
+import session from 'express-session';
 import jobController from './controller/jobController';
 import authController from './controller/authController';
 import authMiddleware from './middleware/auth';
@@ -38,10 +38,15 @@ declare module 'express-session' {
   }
 }
 
-authController(app);
-jobController(app);
+app.use(session({
+  secret: process.env.CACHE_SECRET ? process.env.CACHE_SECRET : 'TEST',
+  cookie: { maxAge: 60000 },
+}));
 
+authController(app);
 app.use(authMiddleware);
+
+jobController(app);
 
 app.get('/', async (req: Request, res: Response) => {
   res.render('index');
