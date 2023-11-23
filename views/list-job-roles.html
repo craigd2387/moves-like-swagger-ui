@@ -37,7 +37,9 @@
                 jobRole.jobName }}</u></a></td>
               <td id='job_capability_{{ jobRole.jobId }}_{{ jobRole.jobCapabilityName }}'>{{ jobRole.jobCapabilityName }}</td>
               <td id='job_bandLevel_{{ jobRole.jobId }}_{{ jobRole.bandLevel.bandLevelId }}'>{{ jobRole.bandLevel.bandName }}</td>
-              <td><form action="/jobs/{{ jobRole.jobId }}" method="post"><button id="delete_job_{{ jobRole.jobId }}" type="submit" class="btn btn-danger delete-button">Delete</button></form></td>
+              {% if role === 'Admin' %}
+              <td><form action="/jobs/{{ jobRole.jobId }}" method="post"><button id="delete_job_{{ jobRole.jobId }}" type="submit" class="alert alert-danger  delete-button">Delete</button></form></td>
+              {% endif %}
             </tr>
           {% endfor %}
           <script src="/scripts/deleteJobButton.js"></script>

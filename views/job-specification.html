@@ -30,7 +30,9 @@ Job Specification
     </a>
     <div>
         <form action="/jobs/{{ jobSpec.jobId }}" method="post">
-            <button id="delete_job_{{ jobSpec.jobId }}" type="submit" class="btn btn-danger delete-button">Delete</button>
+            {% if role === 'Admin'%}
+            <button id="delete_job_{{ jobSpec.jobId }}" type="submit" class="alert alert-danger  delete-button">Delete</button>
+            {% endif %}
         </form>
         <!-- Edit button goes here -->
     </div>
